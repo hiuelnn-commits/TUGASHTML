@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midnight Memories</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+    --bg: #080b18;
+    --blue: #a7c7ff;
+    --muted: #929bb7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 5%, #202d50 0%, transparent 48%),
+        radial-gradient(ellipse at 10% 80%, #101b36 0%, transparent 40%),
+        var(--bg);
+    color: #f4f5ff;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: .55;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .15; transform: scale(.7); }
+    to { opacity: .9; transform: scale(1.4); }
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 36px, 1000px);
+    margin: auto;
+    padding: 28px 0 35px;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 60px;
+}
+
+.logo {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--blue);
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.back {
+    text-decoration: none;
+    color: #d8def2;
+    font-size: 12px;
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 10px 16px;
+    border-radius: 30px;
+    transition: .3s;
+    white-space: nowrap;
+}
+
+.back:hover {
+    background: rgba(167,199,255,.12);
+    border-color: rgba(167,199,255,.4);
+    color: var(--blue);
+    transform: translateY(-2px);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.eyebrow {
+    color: var(--blue);
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(38px, 8vw, 66px);
+    line-height: 1.15;
+}
+
+h1 em {
+    color: var(--blue);
+    font-weight: 400;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+/* MUSIC PLAYER */
+.music-card {
+    width: min(100%, 400px);
+    margin: auto;
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 25px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.018)
+    );
+    box-shadow: 0 25px 90px rgba(0,0,0,.3);
+    backdrop-filter: blur(16px);
+}
+
+.album {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 17px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #263858, #101426);
+    box-shadow: 0 10px 35px rgba(0,0,0,.3);
+}
+
+.album img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.album::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        transparent 60%,
+        rgba(5,8,20,.3)
+    );
+    pointer-events: none;
+}
+
+.music-info {
+    padding: 23px 2px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.song-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+}
+
+.artist {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.heart {
+    color: var(--blue);
+    font-size: 23px;
+}
+
+.progress-area {
+    margin-top: 9px;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--blue);
+    cursor: pointer;
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin: 22px 0 16px;
+}
+
+.control-btn {
+    border: 0;
+    color: #dce5ff;
+    background: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    transition: .2s;
+}
+
+.control-btn:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.play-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: none;
+    background: var(--blue);
+    color: #11182a;
+    font-size: 21px;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(167,199,255,.23);
+    transition: .25s;
+}
+
+.play-btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 40px rgba(167,199,255,.4);
+}
+
+.volume-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.volume-area input {
+    flex: 1;
+    min-width: 0;
+}
+
+.status {
+    min-height: 18px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.status.error {
+    color: #ffb6c1;
+}
+
+.note {
+    text-align: center;
+    margin: 38px auto 0;
+    max-width: 420px;
+    color: #9aa4c1;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #68728f;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    nav {
+        margin-bottom: 45px;
+        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding-top: 10px;
+    }
+
+    .nav-links {
+        gap: 6px;
+    }
+
+    .back {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    .music-card {
+        padding: 17px;
+    }
+
+    .controls {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 350px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="page">
+
+    <nav>
+        <div class="logo">M I D N I G H T</div>
+
+        <div class="nav-links">
+            <a href="SATUREAL.html" class="back">← Kembali</a>
+            <a href="LIMAREAL.html" class="back">♡ Mini Scrap</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <p class="eyebrow">A little corner of the night</p>
+        <h1>My <em>Music</em></h1>
+        <p class="subtitle">some songs feel like memories.</p>
+    </header>
+
+    <main>
+        <section class="music-card">
+
+            <div class="album">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCdi_ZOqRlXaMiiu5wWrHEN0UFA8E5LncJkAPYDStCQ&s"
+                    alt="Album cover"
+                    onerror="this.style.display='none';"
+                >
+            </div>
+
+            <div class="music-info">
+                <div>
+                    <h2 class="song-title">Love Shine</h2>
+                    <p class="artist">Lee Heesang</p>
+                </div>
+                <div class="heart">♡</div>
+            </div>
+
+            <audio id="bgMusic" preload="metadata">
+                <source src="clarice.mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="progress-area">
+                <input
+                    type="range"
+                    id="progress"
+                    min="0"
+                    max="100"
+                    value="0"
+                    aria-label="Posisi lagu"
+                >
+
+                <div class="time">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button
+                    class="control-btn"
+                    id="restartBtn"
+                    title="Ulang dari awal"
+                    aria-label="Ulang lagu"
+                >↺</button>
+
+                <button
+                    class="play-btn"
+                    id="playBtn"
+                    aria-label="Putar musik"
+                >▶</button>
+
+                <button
+                    class="control-btn"
+                    id="muteBtn"
+                    title="Mute/unmute"
+                    aria-label="Bisukan musik"
+                >♫</button>
+            </div>
+
+            <div class="volume-area">
+                <span id="volumeIcon">♫</span>
+
+                <input
+                    type="range"
+                    id="volume"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value="0.7"
+                    aria-label="Volume musik"
+                >
+
+                <span id="volumeLabel">70%</span>
+            </div>
+
+            <p class="status" id="status">
+                tekan play, nikmati malamnya ✦
+            </p>
+
+        </section>
+
+        <p class="note">
+            “Somewhere between the stars and silence,<br>
+            there is a song that reminds me of you.”
+        </p>
+    </main>
+
+    <footer class="footer">
+        MADE WITH ♡ UNDER THE NIGHT SKY
+    </footer>
+
+</div>
+
+<script>
+const audio = document.getElementById('bgMusic');
+const playBtn = document.getElementById('playBtn');
+const muteBtn = document.getElementById('muteBtn');
+const restartBtn = document.getElementById('restartBtn');
+const progress = document.getElementById('progress');
+const currentTimeEl = document.getElementById('currentTime');
+const durationEl = document.getElementById('duration');
+const statusEl = document.getElementById('status');
+const volume = document.getElementById('volume');
+const volumeIcon = document.getElementById('volumeIcon');
+const volumeLabel = document.getElementById('volumeLabel');
+
+audio.volume = Number(volume.value);
+
+function formatTime(seconds) {
+    if (!Number.isFinite(seconds)) return '0:00';
+
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60);
+
+    return min + ':' + String(sec).padStart(2, '0');
+}
+
+function setStatus(message, isError = false) {
+    statusEl.textContent = message;
+    statusEl.classList.toggle('error', isError);
+}
+
+function updateVolumeDisplay() {
+    const isSilent = audio.muted || audio.volume === 0;
+
+    volumeIcon.textContent = isSilent ? '×' : '♫';
+    muteBtn.textContent = audio.muted ? '×' : '♫';
+    volumeLabel.textContent =
+        Math.round((audio.muted ? 0 : audio.volume) * 100) + '%';
+}
+
+playBtn.addEventListener('click', async () => {
+    if (audio.paused) {
+        setStatus('memuat musik...');
+
+        try {
+            await audio.play();
+        } catch (error) {
+            console.error('Gagal memutar audio:', error);
+
+            setStatus(
+                'Musik gagal diputar. Periksa nama file dan format audio.',
+                true
+            );
+        }
+    } else {
+        audio.pause();
+    }
+});
+
+audio.addEventListener('play', () => {
+    playBtn.textContent = 'Ⅱ';
+    playBtn.setAttribute('aria-label', 'Jeda musik');
+    setStatus('playing in the moonlight ✦');
+});
+
+audio.addEventListener('pause', () => {
+    playBtn.textContent = '▶';
+    playBtn.setAttribute('aria-label', 'Putar musik');
+
+    if (!audio.ended && !audio.error) {
+        setStatus('paused — take your time');
+    }
+});
+
+audio.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(audio.duration);
+    setStatus('lagu siap diputar ✦');
+});
+
+audio.addEventListener('timeupdate', () => {
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+
+    if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        progress.value =
+            (audio.currentTime / audio.duration) * 100;
+    }
+});
+
+progress.addEventListener('input', () => {
+    if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        audio.currentTime =
+            (Number(progress.value) / 100) * audio.duration;
+    }
+});
+
+restartBtn.addEventListener('click', async () => {
+    try {
+        audio.currentTime = 0;
+
+        if (audio.paused) {
+            await audio.play();
+        }
+    } catch (error) {
+        console.error(error);
+        setStatus('Tidak bisa memutar audio. Periksa file musik.', true);
+    }
+});
+
+muteBtn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    updateVolumeDisplay();
+});
+
+volume.addEventListener('input', () => {
+    audio.volume = Number(volume.value);
+    audio.muted = false;
+    updateVolumeDisplay();
+});
+
+audio.addEventListener('ended', () => {
+    playBtn.textContent = '▶';
+    progress.value = 0;
+    currentTimeEl.textContent = '0:00';
+    setStatus('the night goes on... ✦');
+});
+
+audio.addEventListener('error', () => {
+    const code = audio.error ? audio.error.code : 0;
+
+    console.error('Audio error code:', code);
+    console.error('Audio source:', audio.currentSrc);
+
+    const messages = {
+        1: 'Pemuatan audio dibatalkan.',
+        2: 'Gagal membaca file. Periksa lokasi file.',
+        3: 'Data audio tidak bisa dibaca. Coba file MP3 lain.',
+        4: 'File tidak ditemukan atau format tidak didukung.'
+    };
+
+    setStatus(
+        messages[code] || 'Audio gagal dimuat. Periksa file musik.',
+        true
+    );
+});
+
+// Membuat bintang malam
+const stars = document.getElementById('stars');
+
+for (let i = 0; i < 85; i++) {
+    const star = document.createElement('span');
+
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 4 + 's';
+    star.style.animationDuration =
+        (2 + Math.random() * 4) + 's';
+
+    stars.appendChild(star);
+}
+
+updateVolumeDisplay();
+</script>
+
+</body>
+</html>

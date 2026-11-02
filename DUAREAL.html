@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Informasi Akademik</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f7dcd8 0%, #fad2e1 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 24px;
+            padding: 35px 28px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.15);
+            border-top: 15px solid #ff4d6d;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: "♡";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            color: #ffe5ec;
+            z-index: 0;
+        }
+        .header {
+            position: relative;
+            z-index: 1;
+        }
+        .avatar-placeholder {
+            width: 75px;
+            height: 75px;
+            background-color: #fff0f2;
+            border: 3px solid #ff4d6d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            font-size: 30px;
+            color: #ff4d6d;
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.2);
+        }
+        .header h1 {
+            color: #2b2b2b;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #ff758f;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        .section-title {
+            text-align: left;
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background-color: #ff4d6d;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+        .info-table, .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 13px;
+            background-color: #fffbfb;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #ffe3e7;
+        }
+        .info-table td {
+            padding: 10px 14px;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid #ffe3e7;
+        }
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+        .info-table td.label {
+            color: #333;
+            font-weight: 600;
+            width: 40%;
+        }
+        .info-table td.value {
+            color: #555;
+            text-align: right;
+        }
+        .status-badge {
+            background: linear-gradient(45deg, #ff4d6d, #ff758f);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 2px 6px rgba(255, 77, 109, 0.3);
+        }
+        .schedule-table th {
+            background-color: #ff4d6d;
+            color: white;
+            padding: 10px 12px;
+            font-weight: 600;
+            text-align: left;
+        }
+        .schedule-table td {
+            padding: 12px 12px;
+            text-align: left;
+            color: #444;
+            border-bottom: 1px solid #fff0f2;
+            vertical-align: middle;
+        }
+        .schedule-table td:last-child {
+            text-align: right;
+            color: #666;
+            white-space: nowrap;
+        }
+        .schedule-table tbody tr:last-child td {
+            background-color: #fff7f8;
+            border-bottom: none;
+        }
+        .action-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .btn-action {
+            flex: 1;
+            background-color: #fff0f2;
+            color: #ff4d6d;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid #ffd1d9;
+            transition: all 0.3s ease;
+        }
+        .btn-action:hover {
+            background-color: #ff4d6d;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3);
+        }
+        .quote-box {
+            background-color: #fff5f7;
+            border-left: 3px solid #ff4d6d;
+            padding: 10px 12px;
+            border-radius: 0 8px 8px 0;
+            font-size: 11px;
+            color: #885560;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #c17b8a;
+            font-size: 11px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Header -->
+        <div class="header">
+            <div class="avatar-placeholder">🌸</div>
+            <h1>Halo, Salam Kenal ♡</h1>
+            <p>Selamat Datang di Halaman Informasi Akademik</p>
+        </div>
+
+        <!-- Kutipan Singkat -->
+        <div class="quote-box">
+            ✨ <em>"Semangat belajar hari ini, raih mimpi dan jalani hari dengan senyuman."</em>
+        </div>
+
+        <!-- Informasi Siswa -->
+        <div class="section-title">INFORMASI SISWA</div>
+        <table class="info-table">
+            <tbody>
+                <tr>
+                    <td class="label">Nama Lengkap:</td>
+                    <td class="value">Clarice</td>
+                </tr>
+                <tr>
+                    <td class="label">Kelas:</td>
+                    <td class="value">XII</td>
+                </tr>
+                <tr>
+                    <td class="label">Asal Sekolah:</td>
+                    <td class="value"><span class="highlight">SMA Santo Paulus Pontianak</span></td>
+                </tr>
+                <tr>
+                    <td class="label">Status:</td>
+                    <td class="value">
+                        <span class="status-badge">TAKEN BY CHRIS ♡</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Daily Schedule -->
+        <div class="section-title">DAILY SCHEDULE ♡</div>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Activity</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Daily</td>
+                    <td>Academic Journey 📚</td>
+                    <td>07.00 - 13.30</td>
+                </tr>
+                <tr>
+                    <td>Daily</td>
+                    <td>Quality Time with My Favorite Person ♡</td>
+                    <td>13.30 - Until Sleepy</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tombol Aksi -->
+        <div class="action-links">
+            <a href="SATUREAL.html" class="btn-action">← Profil Utama</a>
+            <a href="TIGAREAL.html" class="btn-action">Lihat Album →</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Every day is better with a little love ♡
+        </div>
+    </div>
+</body>
+</html>

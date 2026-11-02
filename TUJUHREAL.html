@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Chats — Claire ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #08101f;
+  --panel: rgba(16, 29, 51, .86);
+  --panel2: rgba(28, 43, 69, .78);
+  --blue: #a9ceff;
+  --blue-light: #dceaff;
+  --lavender: #d9c4eb;
+  --text: #edf4ff;
+  --muted: #9eafca;
+  --border: rgba(183, 211, 255, .17);
+  --pink: #e7bfd9;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  background:
+    radial-gradient(ellipse at 10% 10%, rgba(57, 91, 143, .23), transparent 40%),
+    radial-gradient(ellipse at 90% 45%, rgba(105, 77, 128, .15), transparent 35%),
+    linear-gradient(rgba(5, 11, 23, .83), rgba(5, 11, 23, .94)),
+    url("https://i.pinimg.com/736x/d1/9d/a5/d19da5ab5b930942c50f607ee18a0994.jpg")
+    center/cover fixed;
+}
+
+body::before {
+  content: "✦       ·          ✧                 ·       ✦";
+  position: fixed;
+  inset: 0 0 auto;
+  height: 100vh;
+  padding: 35px;
+  color: rgba(207, 226, 255, .17);
+  font-size: 16px;
+  letter-spacing: 22px;
+  line-height: 5;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+.page {
+  width: min(1440px, 100%);
+  margin: auto;
+  padding: 24px clamp(14px, 4vw, 54px) 45px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 17px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 27px;
+  color: var(--blue-light);
+  white-space: nowrap;
+}
+
+.logo span { color: var(--pink); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.nav-links a {
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  color: var(--muted);
+  font-size: 11px;
+  transition: .25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--blue-light);
+  background: rgba(155, 194, 255, .12);
+  border-color: rgba(183, 211, 255, .12);
+}
+
+.time-label {
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* INTRO */
+
+.intro {
+  position: relative;
+  padding: 48px 0 30px;
+  max-width: 800px;
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 5vw, 61px);
+  line-height: 1.13;
+  font-weight: 500;
+  margin: 13px 0;
+}
+
+.intro h1 em {
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.intro p {
+  max-width: 620px;
+  color: #b0bfd5;
+  font-size: 13px;
+  line-height: 1.95;
+}
+
+.tiny-label {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 7px 12px;
+  border: 1px dashed rgba(183, 211, 255, .27);
+  border-radius: 5px;
+  color: #b7c9e5;
+  font-family: "Caveat", cursive;
+  font-size: 16px;
+  transform: rotate(-2deg);
+}
+
+/* LAYOUT */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(270px, .75fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.left-column, .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.panel {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  overflow: hidden;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(17px);
+  -webkit-backdrop-filter: blur(17px);
+}
+
+.panel-heading {
+  padding: 17px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.panel-heading h2 {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: .3px;
+}
+
+.panel-heading small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.side-body { padding: 18px; }
+
+.side-body p {
+  color: #b5c2d7;
+  font-size: 12px;
+  line-height: 1.85;
+  margin: 11px 0;
+}
+
+/* STATUS */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #b6e4c6;
+  font-size: 10px;
+}
+
+.status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #8cdbac;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(140, 219, 172, .5);
+}
+
+.status.offline { color: #e9a5b8; }
+.status.offline::before {
+  background: #e9a5b8;
+  box-shadow: none;
+}
+
+/* CALL PHOTO */
+
+.call-photo {
+  position: relative;
+  min-height: 280px;
+  aspect-ratio: 16 / 10;
+  background: #101a2a;
+  overflow: hidden;
+}
+
+.call-photo > img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(.78) saturate(.8);
+}
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 8, 17, .45),
+    transparent 35%,
+    rgba(4, 8, 17, .75)
+  );
+}
+
+.call-top, .call-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.call-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(214, 232, 255, .7);
+  flex-shrink: 0;
+  background: #253550;
+}
+
+.avatar.small {
+  width: 31px;
+  height: 31px;
+}
+
+.call-name strong {
+  display: block;
+  font-size: 13px;
+}
+
+.call-name small {
+  display: block;
+  font-size: 10px;
+  color: #d0d9e9;
+  margin-top: 4px;
+}
+
+.call-time {
+  font-size: 10px;
+  background: rgba(8, 14, 27, .58);
+  padding: 8px 11px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+}
+
+.call-caption h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(22px, 3.4vw, 35px);
+  font-weight: 500;
+  margin: 0 0 7px;
+}
+
+.call-caption p {
+  color: #e0e8f7;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 470px;
+}
+
+.call-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(8, 14, 27, .45);
+  border-top: 1px solid var(--border);
+}
+
+.control {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--blue-light);
+  background: rgba(164, 195, 255, .09);
+  font-size: 17px;
+  transition: .2s;
+}
+
+.control:hover {
+  transform: translateY(-2px);
+  background: rgba(164, 195, 255, .19);
+}
+
+.control.end-call {
+  color: white;
+  background: #bc526b;
+  border-color: #bc526b;
+}
+
+/* CHAT */
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-heading-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-heading-left strong {
+  display: block;
+  font-size: 13px;
+}
+
+.chat-heading-left small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.chat-date {
+  text-align: center;
+  font-size: 10px;
+  color: #93a6c4;
+  padding: 19px 10px 5px;
+}
+
+.chat-messages {
+  padding: 17px 16px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  max-height: 700px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.chat-messages::-webkit-scrollbar { width: 5px; }
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(169, 206, 255, .22);
+  border-radius: 10px;
+}
+
+.message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 92%;
+}
+
+.message-row.chris {
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.message-row.claire { align-self: flex-start; }
+
+.message-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.message-row.chris .message-stack { align-items: flex-end; }
+
+.sender-name {
+  font-size: 10px;
+  color: var(--muted);
+  padding: 0 5px 2px;
+}
+
+.bubble {
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 13px;
+  border-radius: 15px;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  animation: appear .25s ease both;
+}
+
+.claire .bubble {
+  background: #202e47;
+  color: #eaf1ff;
+  border: 1px solid rgba(175, 205, 255, .1);
+  border-bottom-left-radius: 5px;
+}
+
+.chris .bubble {
+  background: #c7ddff;
+  color: #18253a;
+  border-bottom-right-radius: 5px;
+}
+
+.bubble.sweet {
+  background: #2a2c4a;
+  border-color: rgba(221, 181, 224, .2);
+}
+
+.chris .bubble.sweet {
+  background: #e4d5f0;
+  color: #34233e;
+}
+
+.message-time {
+  font-size: 9px;
+  color: #8190a8;
+  padding: 2px 5px 0;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-footer {
+  padding: 13px 15px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-avatar {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-footer span {
+  font-size: 11px;
+  color: #9baac2;
+}
+
+.typing-dots {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.typing-dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: blink 1s infinite alternate;
+}
+
+.typing-dots i:nth-child(2) { animation-delay: .2s; }
+.typing-dots i:nth-child(3) { animation-delay: .4s; }
+
+@keyframes blink {
+  to { opacity: .25; transform: translateY(-2px); }
+}
+
+/* SCRAPBOOK NOTE */
+
+.note-card {
+  position: relative;
+  padding: 20px;
+  background: linear-gradient(145deg, rgba(190, 211, 244, .1), rgba(173, 164, 211, .07));
+  border: 1px solid rgba(190, 211, 255, .19);
+  border-radius: 5px 15px 8px 13px;
+  transform: rotate(-.5deg);
+}
+
+.note-card::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 42%;
+  width: 65px;
+  height: 17px;
+  background: rgba(187, 207, 239, .22);
+  transform: rotate(-3deg);
+}
+
+.handwriting {
+  font-family: "Caveat", cursive;
+  font-size: 29px;
+  line-height: 1.3;
+  color: var(--blue-light);
+}
+
+.signature {
+  margin-top: 17px;
+  color: var(--pink);
+  font-family: "Caveat", cursive;
+  font-size: 19px;
+}
+
+/* PHOTO MEMORY */
+
+.memory-photo-wrap {
+  position: relative;
+  padding: 10px 10px 17px;
+  background: #e0e5ed;
+  transform: rotate(1deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .18);
+}
+
+.memory-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.2;
+  object-fit: cover;
+  filter: saturate(.75) contrast(.96);
+}
+
+.photo-caption {
+  margin-top: 13px;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  color: #263750;
+  font-size: 23px;
+}
+
+.photo-subcaption {
+  text-align: center;
+  font-size: 10px;
+  color: #6d7c90;
+  margin-top: 3px;
+}
+
+/* QUESTIONS */
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.question-btn {
+  width: 100%;
+  text-align: left;
+  padding: 12px 13px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  background: rgba(173, 200, 245, .045);
+  color: #dce8fa;
+  font-size: 11px;
+  transition: .2s;
+}
+
+.question-btn:hover,
+.question-btn.selected {
+  background: rgba(173, 200, 245, .12);
+  border-color: rgba(173, 200, 245, .4);
+}
+
+.question-answer {
+  display: none;
+  margin-top: 12px;
+  padding: 14px;
+  border-left: 2px solid var(--blue);
+  background: rgba(173, 200, 245, .06);
+  color: #c4d3e9;
+  font-size: 11px;
+  line-height: 1.9;
+  border-radius: 0 10px 10px 0;
+}
+
+.question-answer.show {
+  display: block;
+  animation: appear .2s ease;
+}
+
+/* MUSIC */
+
+.music-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+}
+
+.music-item + .music-item {
+  border-top: 1px solid var(--border);
+}
+
+.album-art {
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-size: 20px;
+  background: linear-gradient(135deg, #263e63, #594b70);
+}
+
+.music-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.music-info strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.music-info small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.music-play {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(169, 206, 255, .1);
+  color: var(--blue-light);
+  transition: .2s;
+}
+
+.music-play:hover { background: rgba(169, 206, 255, .22); }
+
+.music-note {
+  color: #8494af;
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 9px;
+}
+
+/* NEXT MEMORY LINK */
+
+.next-memory {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: min(350px, 100%);
+  margin: 32px auto 20px;
+  padding: 15px 17px;
+  color: #dceaff;
+  background: linear-gradient(135deg, rgba(32, 52, 83, .9), rgba(35, 40, 67, .88));
+  border: 1px solid rgba(181, 211, 255, .24);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(2, 8, 20, .23);
+  transition: .3s ease;
+  overflow: hidden;
+}
+
+.next-memory::after {
+  content: "✦";
+  position: absolute;
+  right: 12px;
+  top: 5px;
+  color: rgba(207, 225, 255, .35);
+  font-size: 11px;
+}
+
+.next-memory:hover {
+  transform: translateY(-3px);
+  border-color: rgba(190, 218, 255, .48);
+  background: linear-gradient(135deg, rgba(47, 72, 110, .96), rgba(58, 52, 87, .94));
+  box-shadow: 0 14px 35px rgba(2, 8, 20, .32);
+}
+
+.memory-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(195, 220, 255, .2), rgba(211, 184, 231, .16));
+  border: 1px solid rgba(213, 228, 255, .18);
+  font-size: 21px;
+}
+
+.memory-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.memory-text strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.memory-text small {
+  font-size: 10px;
+  color: #a9bad7;
+}
+
+.memory-arrow {
+  font-size: 17px;
+  color: #c2d8fa;
+  transition: transform .3s ease;
+}
+
+.next-memory:hover .memory-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* FOOTER */
+
+.bottom-note {
+  margin-top: 30px;
+  text-align: center;
+  padding: 25px 10px 8px;
+  color: #a8b8d1;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.bottom-note span { color: var(--pink); }
+
+footer {
+  text-align: center;
+  font-size: 10px;
+  color: #71829e;
+  padding: 22px 0 5px;
+  letter-spacing: .6px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+
+  .right-column {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .time-label { margin-left: auto; }
+}
+
+@media (max-width: 560px) {
+  .page { padding: 17px 12px 32px; }
+  .logo { font-size: 24px; }
+
+  .navbar { gap: 12px; }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 3px;
+  }
+
+  .nav-links a {
+    padding: 8px 9px;
+    font-size: 10px;
+  }
+
+  .intro { padding-top: 33px; }
+  .intro p { font-size: 12px; }
+
+  .right-column { display: flex; }
+
+  .call-photo, .call-photo > img { min-height: 235px; }
+  .photo-overlay { padding: 14px; }
+  .call-caption h3 { font-size: 24px; }
+  .call-caption p { font-size: 11px; }
+
+  .chat-messages {
+    padding: 15px 10px 20px;
+    max-height: 620px;
+  }
+
+  .message-row { max-width: 96%; }
+
+  .bubble {
+    font-size: 11px;
+    padding: 9px 11px;
+  }
+
+  .avatar.small {
+    width: 26px;
+    height: 26px;
+  }
+
+  .panel-heading { padding: 15px; }
+  .side-body { padding: 15px; }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <a class="logo" href="SATUREAL.html">Claire <span>♡</span></a>
+
+    <nav class="nav-links">
+      <a href="SATUREAL.html">Profile</a>
+      <a href="EMPATREAL.html">My Music</a>
+      <a href="LIMAREAL.html">Memories</a>
+      <a href="ENAMREAL.html">Letters</a>
+      <a href="TUJUHREAL.html">Sleep Call</a>
+      <a href="DELAPANREAL.html" class="active">Little Chats</a>
+    </nav>
+
+    <div class="time-label" id="clock">11:47 PM · still awake</div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="eyebrow">a page from our midnight diary · 08</div>
+    <h1>Our Little <em>Chats.</em></h1>
+    <p>
+      The random thoughts, the nonsense, the tiny stories we almost
+      forgot to tell. A little collection of conversations that make
+      ordinary nights feel like memories worth keeping.
+    </p>
+    <div class="tiny-label">somewhere between a joke and a memory ♡</div>
+  </section>
+
+  <main class="layout">
+
+    <!-- LEFT COLUMN -->
+    <section class="left-column">
+
+      <!-- SLEEP CALL HERO -->
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>☾ &nbsp; still on the line</h2>
+          <span class="status" id="call-status">connected</span>
+        </div>
+
+        <div class="call-photo">
+          <img
+            src="https://i.pinimg.com/736x/88/e9/34/88e934d29cd76471cdba96b8a6d388de.jpg"
+            alt="A quiet midnight scene"
+          >
+
+          <div class="photo-overlay">
+            <div class="call-top">
+              <div class="call-name">
+                <img
+                  class="avatar"
+                  src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg"
+                  alt="Claire's profile"
+                >
+                <div>
+                  <strong>Claire ♡</strong>
+                  <small id="call-subtitle">probably not sleeping yet</small>
+                </div>
+              </div>
+              <span class="call-time" id="call-duration">11:47 PM</span>
+            </div>
+
+            <div class="call-caption">
+              <h3>WAIT, ONE MORE THING.</h3>
+              <p>
+                It started with one little story and somehow became
+                three hours of nonsense. Honestly? Worth it.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="call-controls">
+          <button class="control" id="mic-button" title="Toggle microphone">♩</button>
+          <button class="control" id="screen-button" title="Screen">▣</button>
+          <button class="control end-call" id="end-call" title="End call">☎</button>
+          <button class="control" id="heart-button" title="Send a heart">♡</button>
+        </div>
+      </section>
+
+      <!-- CHAT -->
+      <section class="panel chat-panel">
+        <div class="panel-heading">
+          <div class="chat-heading-left">
+            <img
+              class="avatar"
+              src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg"
+              alt="Claire's profile"
+            >
+            <div>
+              <strong>Claire</strong>
+              <small id="chat-status">online · probably bothering you</small>
+            </div>
+          </div>
+          <small>♡ our little midnight</small>
+        </div>
+
+        <div class="chat-date">✦ &nbsp; TODAY · WAY PAST BEDTIME &nbsp; ✦</div>
+
+        <div class="chat-messages" id="chat-messages">
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">CHRISSSSSS</div>
+              <div class="bubble">HELLOOOOOOOO 😭</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">WHATTT 💀</div>
+              <div class="bubble">im literally right hereee</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">okay good</div>
+              <div class="bubble">just checking if my favorite idiot is alive</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">favorite idiot is CRAZYYY</div>
+              <div class="bubble">how many idiots do u have 😭</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">UMMMMM</div>
+              <div class="bubble">that's classified information</div>
+              <div class="bubble">NATIONAL SECURITY, CHRIS.</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">LMAOOOOOO 😭</div>
+              <div class="bubble">ur so unserious</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">waittt waittt</div>
+              <div class="bubble">i have a very important question</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">oh no</div>
+              <div class="bubble">here we go again 💀</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">DO PENGUINS HAVE KNEES</div>
+              <div class="bubble">LIKE ACTUALLY THINK ABOUT IT.</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">BROOOOO 😭😭</div>
+              <div class="bubble">ITS ALMOST MIDNIGHT</div>
+              <div class="bubble">WHY ARE WE DISCUSSING PENGUIN ANATOMY</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">ANSWER THE QUESTIONNNN</div>
+              <div class="bubble">i can't sleep with this mystery unresolved</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">yesss they have knees 😭</div>
+              <div class="bubble">they're just hidden under all those feathers</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">WAITTT REALLY????</div>
+              <div class="bubble">I OWE YOU MY LIFE</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">u owe me sleep actually</div>
+              <div class="bubble">i have school tomorrow 😭</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">OKAY OKAYYYY</div>
+              <div class="bubble">five more minutes</div>
+              <div class="bubble">pleaaaaaseee 🥹</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">u said that 40 minutes ago</div>
+              <div class="bubble">FORTY. MINUTES.</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">time is a social construct</div>
+              <div class="bubble">goodnighttttt 💋</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">YOU CANNOT SAY GOODNIGHT AND KEEP TEXTING</div>
+              <div class="bubble">PICK A STRUGGLE 😭</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">LMAOOOOOOO</div>
+              <div class="bubble">okay wait i have something to tell u</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">what is ittt</div>
+              <div class="bubble">im listeninggg</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">today was kinda exhausting ngl</div>
+              <div class="bubble">my brain feels like 37 tabs are open</div>
+              <div class="bubble">and one of them is playing music but i can't find which one 😭</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">HELP THAT'S TOO ACCURATE 💀</div>
+              <div class="bubble">u wanna talk about it or just chill for a bit?</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">maybe just chill</div>
+              <div class="bubble">i don't have the words for everything rn</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble sweet">yeahhh that's okay</div>
+              <div class="bubble sweet">u don't have to explain everything perfectly</div>
+              <div class="bubble sweet">we can just sit here and be weird together 😭</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">"be weird together" 😭</div>
+              <div class="bubble">that's actually kinda sweet</div>
+              <div class="bubble">don't let it get to ur head tho</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">TOO LATE</div>
+              <div class="bubble">im putting it on my resume</div>
+              <div class="bubble">professional weirdo since birth</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">HAHAHAHA STOPPPP 😭</div>
+              <div class="bubble">wait my eyes are literally closing</div>
+              <div class="bubble">this is so embarrassing</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">GO TO SLEEEEP</div>
+              <div class="bubble">finally peace has arrived</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">wowww okay rude</div>
+              <div class="bubble">i see how it is 💔</div>
+              <div class="bubble">goodnighttt chris</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble sweet">goodnighttt claireee</div>
+              <div class="bubble sweet">get some rest okayyy</div>
+              <div class="bubble sweet">tomorrow can wait a little bit</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble sweet">okayyy 🥹</div>
+              <div class="bubble sweet">and chris?</div>
+              <div class="bubble sweet">im glad we talked tonight</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble sweet">me toooo</div>
+              <div class="bubble sweet">now close ur eyes before u ask me about another animal</div>
+            </div>
+          </div>
+
+          <div class="message-row claire">
+            <img class="avatar small" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+            <div class="message-stack">
+              <span class="sender-name">Claire</span>
+              <div class="bubble">WAIT DO FISH GET THIRSTY</div>
+              <div class="bubble">CHRISSSSSS</div>
+            </div>
+          </div>
+
+          <div class="message-row chris">
+            <div class="message-stack">
+              <span class="sender-name">Chris</span>
+              <div class="bubble">IM TURNING OFF THE WIFI 💀</div>
+              <div class="bubble">GOODNIGHTTTTT 😭</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="chat-footer">
+          <img class="footer-avatar" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="">
+          <span>last seen: refusing to sleep ♡</span>
+          <div class="typing-dots" title="typing...">
+            <i></i><i></i><i></i>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <aside class="right-column">
+
+      <!-- LITTLE NOTE -->
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>✧ &nbsp; a little note</h2>
+          <small>for tonight</small>
+        </div>
+
+        <div class="side-body">
+          <div class="note-card">
+            <div class="handwriting">
+              Five more minutes,<br>
+              pleaaaseee? ♡
+            </div>
+
+            <p>It's literally been an hour, Claire.</p>
+            <p>YEAHHH, BUT LIKE… FIVE MORE MINUTESSS 😭</p>
+            <div class="signature">— two idiots, probably</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHOTO MEMORY -->
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>♡ &nbsp; the other night</h2>
+          <small>memory no. 08</small>
+        </div>
+
+        <div class="side-body">
+          <div class="memory-photo-wrap">
+            <img
+              class="memory-photo"
+              src="https://i.pinimg.com/736x/10/f7/0a/10f70a0bc556fbfb838b4fc22f63d83b.jpg"
+              alt="A quiet little memory"
+              loading="lazy"
+            >
+            <div class="photo-caption">one for the memory box ♡</div>
+            <div class="photo-subcaption">some nights stay with us</div>
+          </div>
+
+          <p>“please take care of yourself, okay?”</p>
+        </div>
+      </section>
+
+      <!-- QUESTIONS -->
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>✦ &nbsp; tonight's question</h2>
+          <small>pick one</small>
+        </div>
+
+        <div class="side-body">
+          <p>okay, serious question for once...</p>
+
+          <div class="question-list">
+            <button class="question-btn" data-answer="Sometimes you're tired even when you haven't done much. That's still valid. You don't need to earn your rest. ♡">
+              ☾ &nbsp; i'm just tired
+            </button>
+
+            <button class="question-btn" data-answer="One thought can turn into twenty at night. Maybe we don't need to solve every single one before sleeping. Let's take them one at a time.">
+              ☁ &nbsp; my brain won't shut up
+            </button>
+
+            <button class="question-btn" data-answer="Missing someone can show up in the smallest moments. You can miss them without having to figure everything out tonight. ♡">
+              ♡ &nbsp; i miss someone
+            </button>
+
+            <button class="question-btn" data-answer="You don't have to turn a difficult day into a perfect explanation. A little quiet, some water, and a bit of rest can be enough for tonight.">
+              ✧ &nbsp; everything feels like a lot
+            </button>
+
+            <button class="question-btn" data-answer="Then just be yourself. No perfect answer needed, no pressure to explain it all.">
+              🐈 &nbsp; idk, just here
+            </button>
+          </div>
+
+          <div class="question-answer" id="question-answer">
+            choose one, silly ♡
+          </div>
+        </div>
+      </section>
+
+      <!-- PLAYLIST -->
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>♫ &nbsp; our midnight playlist</h2>
+          <small>press play</small>
+        </div>
+
+        <div class="side-body">
+
+          <div class="music-item">
+            <div class="album-art">🌊</div>
+            <div class="music-info">
+              <strong>Love.</strong>
+              <small>Wave to Earth</small>
+            </div>
+            <button class="music-play" data-audio="love-wave" title="Play or pause">▶</button>
+          </div>
+
+          <audio id="love-wave" preload="none">
+            <source src="LoveWaveToEarth.mp3" type="audio/mpeg">
+          </audio>
+
+          <div class="music-item">
+            <div class="album-art">🌙</div>
+            <div class="music-info">
+              <strong>My Love Mine All Mine</strong>
+              <small>Mitski</small>
+            </div>
+            <button class="music-play" data-audio="love-mitski" title="Play or pause">▶</button>
+          </div>
+
+          <audio id="love-mitski" preload="none">
+            <source src="MyLoveMineAllMineMitski.mp3" type="audio/mpeg">
+          </audio>
+
+          <div class="music-note">
+            songs for the nights when neither of us wants to hang up yet. ♡
+          </div>
+
+        </div>
+      </section>
+
+    </aside>
+  </main>
+
+  <!-- LINK TO THE NEXT MEMORY -->
+  <a href="SEMBILANREAL.html" class="next-memory">
+    <span class="memory-icon">♡</span>
+    <span class="memory-text">
+      <strong>One More Memory</strong>
+      <small>there's still more to our story...</small>
+    </span>
+    <span class="memory-arrow">↗</span>
+  </a>
+
+  <div class="bottom-note">
+    “same night, different screens,<br>
+    still a little less lonely.” <span>♡</span>
+  </div>
+
+  <footer>
+    MADE WITH A LITTLE TOO MUCH MIDNIGHT ENERGY · CLAIRE ♡
+  </footer>
+
+</div>
+
+<script>
+/* LIVE CLOCK */
+
+function updateClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const suffix = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12 || 12;
+  const time = `${hours}:${minutes} ${suffix}`;
+
+  document.getElementById("clock").textContent =
+    `${time} · still awake`;
+
+  document.getElementById("call-duration").textContent = time;
+}
+
+updateClock();
+setInterval(updateClock, 30000);
+
+
+/* MUSIC PLAYBACK */
+
+const musicButtons = document.querySelectorAll(".music-play");
+const audioPlayers = document.querySelectorAll("audio");
+
+musicButtons.forEach(button => {
+  button.addEventListener("click", async () => {
+    const currentAudio = document.getElementById(button.dataset.audio);
+
+    if (currentAudio.paused) {
+      audioPlayers.forEach(audio => {
+        if (audio !== currentAudio) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+
+      musicButtons.forEach(otherButton => {
+        otherButton.textContent = "▶";
+      });
+
+      try {
+        await currentAudio.play();
+        button.textContent = "Ⅱ";
+      } catch (error) {
+        alert("Couldn't play the song. Check that the MP3 file is in the same folder as DELAPANREAL.html.");
+      }
+    } else {
+      currentAudio.pause();
+      button.textContent = "▶";
+    }
+
+    currentAudio.onended = () => {
+      button.textContent = "▶";
+    };
+  });
+});
+
+audioPlayers.forEach(audio => {
+  audio.addEventListener("pause", () => {
+    const relatedButton = document.querySelector(
+      `.music-play[data-audio="${audio.id}"]`
+    );
+
+    if (relatedButton) relatedButton.textContent = "▶";
+  });
+});
+
+
+/* TONIGHT'S QUESTION */
+
+const questionButtons = document.querySelectorAll(".question-btn");
+const answerBox = document.getElementById("question-answer");
+
+questionButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    answerBox.textContent = button.dataset.answer;
+    answerBox.classList.add("show");
+
+    questionButtons.forEach(otherButton => {
+      otherButton.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+  });
+});
+
+
+/* CALL CONTROLS */
+
+const callStatus = document.getElementById("call-status");
+const callSubtitle = document.getElementById("call-subtitle");
+const chatStatus = document.getElementById("chat-status");
+const endCallButton = document.getElementById("end-call");
+
+document.getElementById("mic-button").addEventListener("click", event => {
+  const button = event.currentTarget;
+  const muted = button.dataset.muted === "true";
+
+  button.dataset.muted = String(!muted);
+  button.style.opacity = muted ? "1" : ".5";
+  button.title = muted ? "Toggle microphone" : "Microphone muted";
+  button.textContent = muted ? "♩" : "×";
+});
+
+document.getElementById("screen-button").addEventListener("click", () => {
+  alert("imagine us sharing the most random video ever 😭");
+});
+
+endCallButton.addEventListener("click", () => {
+  const ended = callStatus.dataset.ended === "true";
+
+  if (!ended) {
+    callStatus.dataset.ended = "true";
+    callStatus.textContent = "call ended";
+    callStatus.classList.add("offline");
+    callSubtitle.textContent = "goodnight, probably";
+    chatStatus.textContent = "last seen · hopefully sleeping";
+    endCallButton.textContent = "↻";
+    endCallButton.title = "Reconnect";
+  } else {
+    callStatus.dataset.ended = "false";
+    callStatus.textContent = "connected";
+    callStatus.classList.remove("offline");
+    callSubtitle.textContent = "probably not sleeping yet";
+    chatStatus.textContent = "online · probably bothering you";
+    endCallButton.textContent = "☎";
+    endCallButton.title = "End call";
+  }
+});
+
+document.getElementById("heart-button").addEventListener("click", event => {
+  const button = event.currentTarget;
+  button.textContent = button.textContent === "♡" ? "♥" : "♡";
+});
+
+
+/* OPEN CHAT AT THE LATEST MESSAGES */
+
+const chatMessages = document.getElementById("chat-messages");
+
+window.addEventListener("load", () => {
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b30">
+<title>A Long Day With Claire ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--night:#101b30;--night2:#1b2b46;--blue:#8da9cf;--ink:#30445f;--muted:#788ca7;--line:rgba(103,132,174,.20);--glass:rgba(221,232,248,.91);--glass2:rgba(202,218,240,.68);--white:#f4f7ff;--shadow:0 18px 48px rgba(3,9,22,.25)}
+*{box-sizing:border-box}
+html{min-height:100%;scroll-behavior:smooth;background:var(--night)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 12% 9%,rgba(104,143,200,.23),transparent 32%),radial-gradient(ellipse at 91% 28%,rgba(150,127,185,.19),transparent 28%),radial-gradient(ellipse at 54% 85%,rgba(63,111,171,.20),transparent 36%),linear-gradient(150deg,#0d1729 0%,#172741 48%,#242944 100%);background-attachment:fixed;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;border:1px solid rgba(201,220,247,.06);border-radius:50%;width:420px;height:420px}body:before{top:10%;right:-220px}body:after{bottom:-260px;left:-160px;width:520px;height:520px}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #9dbbe6;outline-offset:3px}
+.page{width:min(1380px,94%);margin:auto;padding:24px 0 34px}
+.topbar,.brand,.status,.person,.hero-meta,.bottom-nav,.section-title,.widget-head{display:flex;align-items:center}.topbar{justify-content:space-between;gap:14px;margin-bottom:21px}.brand{gap:11px;min-width:0}.brand-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#e1eafb,#b6cce9);box-shadow:0 7px 22px #050d1e50;font-size:21px;flex:none}.brand-name{font:500 21px 'Playfair Display',serif;color:#e3ebfa}.brand-sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#a7b8d0;margin-top:4px}.status{gap:8px;font-size:10px;color:#d7e3f4;padding:10px 13px;border-radius:30px;border:1px solid #c4d7f324;background:#c5d7f012;backdrop-filter:blur(12px);white-space:nowrap}.dot{width:7px;height:7px;border-radius:50%;background:#9bc9b3;box-shadow:0 0 10px #9bc9b380;flex:none}
+.glass{background:var(--glass);border:1px solid rgba(242,247,255,.55);border-radius:22px;box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:26px;align-items:center;padding:28px;margin-bottom:20px;position:relative;overflow:hidden}.hero:after{content:"♡";position:absolute;right:43%;bottom:-77px;font:190px 'Playfair Display',serif;color:rgba(111,143,187,.07);pointer-events:none}.eyebrow{font-size:9px;letter-spacing:2.8px;text-transform:uppercase;color:#6b85a9;font-weight:700}.hero h1{font:500 clamp(35px,4.4vw,58px)/1.08 'Playfair Display',serif;letter-spacing:-.8px;color:#293f5d;margin:12px 0}.hero h1 em{font-weight:500;color:#6f8fb8}.hero-copy{font-size:12px;line-height:1.9;color:#657991;max-width:510px;margin:12px 0 0}.hero-meta{gap:7px;flex-wrap:wrap;margin-top:18px}.pill{font-size:9px;border:1px solid #8fa9cb42;background:#c0d4ee66;color:#486381;border-radius:30px;padding:8px 10px}.hero-photo{height:245px;border-radius:17px;overflow:hidden;position:relative;background:#182a43;box-shadow:0 13px 32px #15243d35}.hero-photo img{height:100%;width:100%;display:block;object-fit:cover;object-position:center 38%;filter:brightness(.82) saturate(.82)}.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,25,46,.76),transparent 58%),linear-gradient(125deg,rgba(82,117,165,.12),transparent)}.photo-sticker{position:absolute;z-index:1;left:13px;bottom:12px;color:#e8effb;font-size:10px;line-height:1.7;text-shadow:0 1px 8px #0d182c}.photo-sticker strong{display:block;font:italic 18px 'Playfair Display',serif;font-weight:500}
+/* tiny top summary */
+.ticker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 21px}.ticker-card{display:flex;align-items:center;gap:11px;padding:13px 15px;min-width:0;background:rgba(202,218,240,.09);border:1px solid rgba(207,225,250,.12);border-radius:16px;color:#d9e5f6;backdrop-filter:blur(12px)}.ticker-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:12px;background:#c8dafa18;font-size:17px;flex:none}.ticker-label{font-size:8px;letter-spacing:1.2px;text-transform:uppercase;color:#9eafc8}.ticker-value{font-size:11px;font-weight:600;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:20px;align-items:start}.chat-card{overflow:hidden;min-width:0}.chat-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 19px;border-bottom:1px solid var(--line);background:rgba(237,243,252,.38)}.person{gap:10px;min-width:0}.avatar,.mini-avatar{object-fit:cover;border-radius:50%;flex:none}.avatar{width:43px;height:43px;border:2px solid #f7f9ff;box-shadow:0 3px 10px #192c4630}.person-name{font-size:13px;font-weight:700;color:#314760}.person-status{font-size:9px;color:#719b89;margin-top:4px}.status-small{display:inline-block;width:6px;height:6px;margin-right:4px;background:#8ab7a0;border-radius:50%}.header-time{text-align:right;color:#8294ad;font-size:9px;line-height:1.7;flex:none}.header-time strong{display:block;color:#516c8f;font-size:10px;font-weight:600}.chat-body{padding:17px 17px 24px;max-height:930px;overflow-y:auto;scroll-behavior:smooth;overscroll-behavior:contain}.chat-body::-webkit-scrollbar{width:6px}.chat-body::-webkit-scrollbar-thumb{background:#7994b52c;border-radius:8px}.day-label{display:flex;justify-content:center;margin:1px 0 23px}.day-label span{font-size:8px;letter-spacing:1.2px;padding:8px 12px;background:#c6d9f071;color:#6f85a3;border:1px solid #a4bbdc30;border-radius:20px;text-align:center}.time-jump{display:flex;align-items:center;gap:10px;margin:27px 0 18px;color:#8295af;font-size:8px;letter-spacing:1.1px;text-transform:uppercase}.time-jump:before,.time-jump:after{content:"";height:1px;flex:1;background:var(--line)}.message{display:flex;gap:8px;margin:12px 0;align-items:flex-end;animation:appear .22s ease both}.message.me{justify-content:flex-end}.mini-avatar{width:25px;height:25px;margin-bottom:17px;border:1px solid #eff4fc}.message-content{display:flex;flex-direction:column;align-items:flex-start;max-width:min(83%,465px);min-width:0}.message.me .message-content{align-items:flex-end}.sender{font-size:9px;color:#7c90aa;margin:0 0 5px 5px}.bubble{padding:9px 12px;font-size:11px;line-height:1.75;overflow-wrap:anywhere;white-space:pre-wrap;border-radius:14px 14px 14px 5px;background:rgba(195,213,239,.68);border:1px solid rgba(113,145,178,.17);color:#344a64}.message.me .bubble{background:rgba(159,188,225,.73);border-color:rgba(113,145,178,.18);border-radius:14px 14px 5px 14px;color:#2f4766}.timestamp{font-size:8px;color:#8a9bb1;margin-top:4px;padding:0 4px}.message.image .bubble{padding:7px}.message-image{width:min(230px,100%);display:block;object-fit:cover;max-height:280px;border-radius:9px;background:#cbd8e9}.image-caption{max-width:240px;padding:8px 6px 4px;font-size:10px;line-height:1.6;white-space:pre-wrap}.image-caption strong{display:block;color:#617fa5;font-size:8px;margin-bottom:3px}.local-fallback{display:none;min-height:85px;padding:12px;place-items:center;text-align:center;font-size:9px;color:#8094aa;background:#cfdaea;border-radius:9px}.end-note{margin:23px auto 1px;padding:14px 15px;max-width:410px;border:1px dashed #9bb2d1a6;border-radius:15px;text-align:center;background:#d5e2f452;color:#6c83a0;font:italic 14px/1.6 'Playfair Display',serif}
+.side-column{display:grid;gap:15px;min-width:0}.side-card{padding:16px;min-width:0}.section-title{justify-content:space-between;gap:10px;margin-bottom:5px}.side-heading{font:500 20px 'Playfair Display',serif;margin:0;color:#2d425e}.tiny-badge{font-size:8px;border-radius:20px;background:#c3d5ee8a;padding:6px 8px;color:#627d9f;white-space:nowrap}.side-sub{font-size:9px;color:#788ca5;line-height:1.8;margin-bottom:13px}.gallery{display:grid;gap:10px}.gallery-item{display:grid;grid-template-columns:90px minmax(0,1fr);gap:10px;align-items:center;overflow:hidden;border-radius:13px;background:rgba(188,207,232,.35);border:1px solid var(--line);padding:7px}.gallery-item img{width:90px;height:82px;object-fit:cover;border-radius:9px;display:block;filter:brightness(.87) saturate(.83);transition:transform .25s,filter .25s}.gallery-item:hover img{transform:scale(1.03);filter:brightness(.98) saturate(.97)}.gallery-caption strong{display:block;font-size:10px;color:#354b68;margin-bottom:5px}.gallery-caption span{font-size:9px;line-height:1.6;color:#7b8da5}.gallery-caption .album-time{display:block;font-size:8px;color:#8da0b8;margin-top:5px}
+.note-card{background:linear-gradient(145deg,rgba(180,202,232,.92),rgba(218,215,238,.94))}.note-quote{font:italic 17px/1.65 'Playfair Display',serif;color:#354a68;margin:11px 0 7px}.note-sign{font-size:9px;color:#6985aa}
+.mood-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.mood-button{border:1px solid #a5bbd633;background:#c9d9ec69;border-radius:12px;padding:9px 3px;color:#55708f;transition:transform .18s,background .18s}.mood-button span{display:block;font-size:18px}.mood-button small{display:block;margin-top:5px;font-size:8px}.mood-button:hover{transform:translateY(-2px)}.mood-button.active{background:#a9c2e8;border-color:#7e9fcf;color:#294565;box-shadow:0 4px 12px #829ec42d}.mood-result{margin-top:10px;font-size:9px;line-height:1.7;color:#7187a1;min-height:30px;background:#ceddf06b;border-radius:10px;padding:9px 10px}
+.lil-game{position:relative;overflow:hidden;background:linear-gradient(140deg,#253c5d,#3a4c70);color:#e9effa;border:1px solid #b8cee52a}.lil-game:before{content:"✦";position:absolute;right:12px;top:6px;font-size:48px;color:#dbe7fb12}.lil-game .side-heading{color:#eaf0fb}.lil-game .side-sub{color:#bbc9dc}.game-row{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:1}.game-star{font-size:33px;filter:drop-shadow(0 0 10px #d7e7ff2e)}.game-button{border:1px solid #d2e2f054;background:#c4d8f22a;color:#f0f5fd;padding:9px 11px;border-radius:12px;font-size:9px}.game-button:hover{background:#c4d8f24d}.game-score{font-size:9px;color:#c4d3e8;margin-top:10px}.game-message{font:italic 13px/1.6 'Playfair Display',serif;color:#dbe6f5;margin-top:7px;min-height:24px;position:relative;z-index:1}
+.note-button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;text-align:left;padding:11px 12px;border:1px solid #a5bbd64d;border-radius:12px;background:#c8d9ed70;color:#425c7b;font-size:10px;margin-top:10px}.note-button:hover{background:#b7cde9a1}.note-button span:last-child{font-size:15px}.random-note{font:italic 14px/1.65 'Playfair Display',serif;color:#597493;margin-top:12px;min-height:46px}.small-caption{font-size:8px;color:#91a2b7;margin-top:7px}
+.check-list{display:grid;gap:9px;margin-top:11px}.check-row{display:flex;gap:8px;align-items:flex-start;font-size:10px;color:#607792;line-height:1.6;cursor:pointer}.check-row input{accent-color:#6f91bd;margin:2px 0 0;flex:none}.check-row:has(input:checked) span{text-decoration:line-through;color:#94a3b7}.progress-line{height:5px;background:#c2d3e8;border-radius:8px;margin-top:12px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#7e9fc9,#a8b9df);border-radius:8px;transition:width .25s}.progress-text{font-size:8px;color:#8094ac;text-align:right;margin-top:5px}
+.music-card{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:13px;border-top:1px solid var(--line)}.music-icon{width:38px;height:38px;display:grid;place-items:center;background:#b2c9e58c;border-radius:12px;font-size:17px;color:#496789;flex:none}.music-title{font-size:10px;font-weight:700;color:#354b68}.music-desc{font-size:9px;color:#7b8da5;line-height:1.6;margin-top:3px}.equalizer{display:flex;gap:3px;align-items:center;margin-left:auto;height:22px}.equalizer i{display:block;width:3px;height:8px;background:#91a9ca;border-radius:4px;animation:wave 1s ease-in-out infinite alternate}.equalizer i:nth-child(2){height:17px;animation-delay:.2s}.equalizer i:nth-child(3){height:11px;animation-delay:.4s}.equalizer i:nth-child(4){height:19px;animation-delay:.1s}.equalizer.paused i{animation-play-state:paused;height:4px}
+.bottom-nav{justify-content:space-between;gap:12px;margin-top:21px;padding:14px 15px}.nav-link{font-size:9px;padding:10px 12px;border-radius:11px;background:#b6cce95f;color:#3b5473;transition:background .2s}.nav-link:hover{background:#9fbbe2a8}.page-number{text-align:center;font-size:8px;color:#7d91aa;line-height:1.8}.page-number strong{font-size:9px;color:#546f93;letter-spacing:.5px}.footer{text-align:center;font-size:9px;color:#9cacc3;margin-top:18px;line-height:1.8}.footer .heart{color:#c7d7f2}
+.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,18px);opacity:0;pointer-events:none;background:#e4ecf8;color:#3c5576;border:1px solid #fff9;padding:10px 15px;border-radius:22px;font-size:10px;box-shadow:0 10px 35px #0208174d;transition:opacity .25s,transform .25s;z-index:20;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.top-button{position:fixed;right:17px;bottom:18px;width:38px;height:38px;border-radius:50%;border:1px solid #cfe0fa36;background:#d4e4f21c;color:#e2ecf9;backdrop-filter:blur(10px);font-size:16px;z-index:5}.top-button:hover{background:#d4e4f244}
+@keyframes appear{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}@keyframes wave{from{transform:scaleY(.55)}to{transform:scaleY(1.08)}}
+@media(max-width:1050px){.layout{grid-template-columns:minmax(0,1fr) 280px;gap:14px}.page{width:95%}.hero{gap:18px}.ticker-card{padding:11px}.ticker-value{font-size:10px}}
+@media(max-width:800px){.hero{grid-template-columns:minmax(0,1fr) minmax(220px,.8fr);padding:22px}.hero-photo{height:220px}.layout{grid-template-columns:minmax(0,1fr)}.side-column{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.side-card.gallery-card{grid-row:span 2}.chat-body{max-height:850px}.ticker{gap:8px}}
+@media(max-width:560px){.page{width:calc(100% - 22px);padding-top:14px}.topbar{margin-bottom:15px}.brand-icon{width:39px;height:39px;border-radius:13px}.brand-name{font-size:17px}.brand-sub{font-size:8px;letter-spacing:1.4px}.status{font-size:8px;padding:9px 10px;gap:6px}.hero{grid-template-columns:1fr;padding:18px;gap:15px;margin-bottom:14px}.hero h1{font-size:39px}.hero-copy{font-size:11px}.hero-photo{height:205px}.ticker{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:14px}.ticker-card{padding:10px;gap:8px}.ticker-icon{width:33px;height:33px}.ticker-value{font-size:10px}.layout{gap:13px}.chat-header{padding:13px}.chat-body{padding:14px 9px 19px;max-height:none}.message-content{max-width:85%}.bubble{font-size:11px;padding:9px 10px}.mini-avatar{width:22px;height:22px}.side-column{grid-template-columns:1fr;gap:12px}.side-card.gallery-card{grid-row:auto}.gallery{grid-template-columns:1fr}.gallery-item{grid-template-columns:92px minmax(0,1fr)}.gallery-item img{width:92px;height:80px}.bottom-nav{padding:10px;gap:6px}.nav-link{font-size:8px;padding:9px 8px}.page-number{font-size:7px}.page-number strong{font-size:8px}.top-button{right:10px;bottom:10px;width:34px;height:34px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page" id="top">
+<header class="topbar">
+  <a href="TUJUHREAL.html" class="brand" aria-label="Back to Claire's little world">
+    <div class="brand-icon">☁️</div><div><div class="brand-name">Claire's little world</div><div class="brand-sub">a small piece of our day</div></div>
+  </a>
+  <div class="status"><span class="dot"></span>one longgg day</div>
+</header>
+
+<section class="hero glass">
+  <div class="hero-copy-wrap">
+    <div class="eyebrow">chapter 08 · everyday things</div>
+    <h1>A longgg day<br><em>with Claire.</em></h1>
+    <p class="hero-copy">A sleepy morning, a school day, too many things to do, and a late-night conversation that somehow keeps going. Nothing special. Just one of those days. ♡</p>
+    <div class="hero-meta"><span class="pill">☁️ sleepy mornings</span><span class="pill">📚 busy afternoon</span><span class="pill">🌙 late-night chats</span></div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://i.pinimg.com/736x/3b/26/83/3b2683035bc89a388847ff94f7991025.jpg" alt="Claire's morning photo" onerror="this.src='https://i.pinimg.com/736x/26/d9/d9/26d9d92e9d55603eda580d0dc65d7448.jpg'">
+    <div class="photo-sticker"><strong>just woke up...</strong>please allow 3–5 business hours for my brain to load.</div>
+  </div>
+</section>
+
+<section class="ticker" aria-label="Day summary">
+  <div class="ticker-card"><div class="ticker-icon">☀️</div><div><div class="ticker-label">first message</div><div class="ticker-value">06:12 · good morning</div></div></div>
+  <div class="ticker-card"><div class="ticker-icon">📚</div><div><div class="ticker-label">main quest</div><div class="ticker-value">school + homework</div></div></div>
+  <div class="ticker-card"><div class="ticker-icon">📸</div><div><div class="ticker-label">little memories</div><div class="ticker-value">3 photo moments</div></div></div>
+  <div class="ticker-card"><div class="ticker-icon">🌙</div><div><div class="ticker-label">final message</div><div class="ticker-value">00:36 · see u tomorrow</div></div></div>
+</section>
+
+<main class="layout">
+<section class="chat-card glass" aria-label="Chat archive">
+  <header class="chat-header">
+    <div class="person"><img class="avatar" src="https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg" alt="Claire avatar"><div><div class="person-name">claire ♡</div><div class="person-status"><span class="status-small"></span>probably sleepy again</div></div></div>
+    <div class="header-time">OUR LITTLE ARCHIVE<strong id="message-count">loading memories...</strong></div>
+  </header>
+  <div class="chat-body" id="chat-body" aria-live="off"></div>
+</section>
+
+<aside class="side-column">
+  <section class="side-card glass gallery-card">
+    <div class="section-title"><h2 class="side-heading">today's pap diary ♡</h2><span class="tiny-badge">03 snaps</span></div>
+    <div class="side-sub">Three little updates, from sleepy morning to questionable bedtime.</div>
+    <div class="gallery">
+      <div class="gallery-item"><img src="https://i.pinimg.com/736x/3b/26/83/3b2683035bc89a388847ff94f7991025.jpg" alt="Claire in the morning" loading="lazy"><div class="gallery-caption"><strong>01 · just woke up</strong><span>Bed hair. No thoughts. Just vibes.</span><span class="album-time">06:14 AM · PAP #01</span></div></div>
+      <div class="gallery-item"><img src="https://i.pinimg.com/736x/ea/6a/e9/ea6ae93248f7f1e7524b3b5b8d7d65f2.jpg" alt="Claire after school" loading="lazy"><div class="gallery-caption"><strong>02 · after school</strong><span>The bed won the afternoon.</span><span class="album-time">02:44 PM · PAP #02</span></div></div>
+      <div class="gallery-item"><img src="https://i.pinimg.com/736x/26/d9/d9/26d9d92e9d55603eda580d0dc65d7448.jpg" alt="Claire at night" loading="lazy"><div class="gallery-caption"><strong>03 · keep me company</strong><span>A tiny late-night interruption.</span><span class="album-time">09:25 PM · PAP #03</span></div></div>
+    </div>
+  </section>
+
+  <section class="side-card glass">
+    <div class="section-title"><h2 class="side-heading">what's your weather?</h2><span class="tiny-badge">tiny check-in</span></div>
+    <div class="side-sub">Pick the emoji closest to your mood. No explanation required.</div>
+    <div class="mood-list" id="mood-list">
+      <button class="mood-button" data-mood="cloudy" data-message="Cloudy is still weather, Chris. You don't have to feel sunny all the time. ☁️"><span>☁️</span><small>cloudy</small></button>
+      <button class="mood-button" data-mood="sunny" data-message="A little sunshine! Keep one good thing from today in your pocket. ☀️"><span>☀️</span><small>sunny</small></button>
+      <button class="mood-button" data-mood="rainy" data-message="Rainy days count too. Take it gently; you don't have to force a good mood. 🌧️"><span>🌧️</span><small>rainy</small></button>
+      <button class="mood-button" data-mood="sleepy" data-message="Sleepy weather detected. Water, a comfy spot, and some rest sound like a plan. 🌙"><span>🌙</span><small>sleepy</small></button>
+    </div>
+    <div class="mood-result" id="mood-result">Your mood can change. This little button doesn't have to fix it. ♡</div>
+  </section>
+
+  <section class="side-card glass lil-game">
+    <div class="section-title"><h2 class="side-heading">collect a little star</h2><span class="tiny-badge">mini game</span></div>
+    <div class="side-sub">Tap the button whenever you need a tiny break. No leaderboard, no pressure.</div>
+    <div class="game-row"><div class="game-star" id="game-star">✦</div><button class="game-button" id="collect-star">+ collect star</button></div>
+    <div class="game-score">stars found: <strong id="star-score">0</strong> · personal best: being here</div>
+    <div class="game-message" id="game-message">One tiny star for making it through today.</div>
+  </section>
+
+  <section class="side-card glass">
+    <div class="section-title"><h2 class="side-heading">a note from Claire</h2><span class="tiny-badge">open when needed</span></div>
+    <div class="side-sub">A little reminder, picked at random.</div>
+    <button class="note-button" id="new-note"><span>open a tiny note ♡</span><span>↗</span></button>
+    <div class="random-note" id="random-note">“You can have a long day and still deserve a quiet, gentle ending.”</div>
+    <div class="small-caption">a fictional note from your page's Claire · always okay to take a break</div>
+  </section>
+
+  <section class="side-card glass">
+    <div class="section-title"><h2 class="side-heading">tiny quest log</h2><span class="tiny-badge">no rush</span></div>
+    <div class="side-sub">Not a productivity contest. Just a few basics for taking care of yourself.</div>
+    <div class="check-list" id="check-list">
+      <label class="check-row"><input type="checkbox"><span>Drink a little water</span></label>
+      <label class="check-row"><input type="checkbox"><span>Eat something proper</span></label>
+      <label class="check-row"><input type="checkbox"><span>Give my eyes a screen break</span></label>
+      <label class="check-row"><input type="checkbox"><span>Let one unfinished thing wait</span></label>
+    </div>
+    <div class="progress-line"><div class="progress-fill" id="progress-fill"></div></div><div class="progress-text" id="progress-text">0 of 4 checked · it's okay to start small</div>
+    <div class="music-card"><div class="music-icon">♫</div><div><div class="music-title">late night mood</div><div class="music-desc">soft songs · quiet room · slow thoughts</div></div><div class="equalizer" id="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+    <button class="note-button" id="music-toggle"><span id="music-toggle-label">pause the little animation</span><span>Ⅱ</span></button>
+  </section>
+
+  <section class="side-card glass note-card">
+    <div class="eyebrow">before you go</div><div class="note-quote">“You don't have to solve your whole future in one night.”</div><div class="note-sign">— one day at a time, okay? ♡</div>
+  </section>
+</aside>
+</main>
+
+<nav class="bottom-nav glass"><a href="TUJUHREAL.html" class="nav-link">← Previous page</a><div class="page-number"><strong>08 · A DAY WITH CLAIRE</strong><br>a little archive of an ordinary day</div><a href="SEMBILANREAL.html" class="nav-link">Next page →</a></nav>
+<footer class="footer">a longgg day, three pap moments, too many fish questions, and a soft landing. <span class="heart">♡</span><br><span>made of little memories · not every day has to be perfect.</span></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><button class="top-button" id="top-button" aria-label="Back to top" title="Back to top">↑</button>
+
+<script>
+const claireImg = 'https://i.pinimg.com/736x/a6/fd/22/a6fd22b98664c77633a482ce30bf79c9.jpg';
+const morningImg = 'https://i.pinimg.com/736x/3b/26/83/3b2683035bc89a388847ff94f7991025.jpg';
+const afterImg = 'https://i.pinimg.com/736x/ea/6a/e9/ea6ae93248f7f1e7524b3b5b8d7d65f2.jpg';
+const nightImg = 'https://i.pinimg.com/736x/26/d9/d9/26d9d92e9d55603eda580d0dc65d7448.jpg';
+// type: jump | claire | me | photo | end
+const conversation = [
+ {type:'day',text:`THURSDAY · JUST AN ORDINARY DAY`},
+ {type:'jump',text:`06:12 AM · just woke up`},
+ {type:'claire',time:'06:12',text:`good morninggg`,sender:'claire'},
+ {type:'claire',time:'06:12',text:`i literally just woke up`},
+ {type:'claire',time:'06:13',text:`my brain is still loadinggg`},
+ {type:'photo',time:'06:14',image:morningImg,alt:"Claire just woke up",caption:'this is the face of someone who should\'ve slept earlier 😭',label:'06:14 · PAP #01'},
+ {type:'me',time:'06:17',text:`morninggg 😭`},
+ {type:'me',time:'06:17',text:`you look like you need another three hours`},
+ {type:'claire',time:'06:18',text:`I DOOO`},
+ {type:'claire',time:'06:18',text:`but unfortunately i have responsibilities and a face to wash`},
+ {type:'me',time:'06:20',text:`go get readyyy`},
+ {type:'claire',time:'06:20',text:`okeyyy mom`},
+ {type:'me',time:'06:21',text:`MOM???`},
+ {type:'claire',time:'06:21',text:`sorry sorry 😭 have a good day, chris`},
+ {type:'claire',time:'06:22',text:"don't forget breakfast if u cannn"},
+ {type:'jump',text:`07:02 AM · heading out`},
+ {type:'me',time:'07:02',text:`leaving for school noww`},
+ {type:'claire',time:'07:03',text:`okeyyy have a nice dayyy`},
+ {type:'claire',time:'07:03',text:`hope school is kind to u today ♡`},
+ {type:'jump',text:`02:42 PM · home at last`},
+ {type:'claire',time:'14:42',text:"i'm homeeee",sender:'claire'},
+ {type:'claire',time:'14:43',text:"i was gonna tell u something but i sat on my bed and now i can't move"},
+ {type:'claire',time:'14:43',text:`the bed has claimed another victim`},
+ {type:'photo',time:'14:44',image:afterImg,alt:'Claire after school',caption:'i got home and accidentally became horizontal. longgg dayyy.',label:'02:44 PM · PAP #02'},
+ {type:'me',time:'14:48',text:`did u even eat yet 😭`},
+ {type:'claire',time:'14:49',text:`i was about to`},
+ {type:'claire',time:'14:49',text:"then i blinked and somehow it's been twenty minutes"},
+ {type:'me',time:'14:50',text:`go eat first, then sleep if you're tired`},
+ {type:'claire',time:'14:51',text:`okeyyy i'll just close my eyes for five minutes`},
+ {type:'me',time:'14:51',text:`that sounds suspicious`},
+ {type:'claire',time:'14:52',text:`five. minutes.`},
+ {type:'jump',text:`03:18 PM · she woke up eventually`},
+ {type:'claire',time:'15:18',text:`chris????`,sender:'claire'},
+ {type:'claire',time:'15:18',text:`okay so that was not five minutes`},
+ {type:'claire',time:'15:19',text:`what are u doinggg?`},
+ {type:'me',time:'15:23',text:`working on homework and preparing for a meeting`},
+ {type:'claire',time:'15:23',text:`ohhh right, the meetinggg`},
+ {type:'claire',time:'15:24',text:`longgg day for both of us then 😭`},
+ {type:'me',time:'15:25',text:"yeah, i've got a lot to finish"},
+ {type:'claire',time:'15:25',text:"okayyy i'll let u focus for a bit"},
+ {type:'claire',time:'15:26',text:"send me a picture of the homework if u want. i'll keep u company while u work"},
+ {type:'photo-local',time:'15:31',path:'LAPTOP.jpeg',alt:"Chris's homework",caption:"here's what i'm working on. still have to get the meeting stuff ready too 😭",label:'03:31 PM · SENT A PHOTO'},
+ {type:'claire',time:'15:32',text:"oh wow okay, that's quite a bit"},
+ {type:'claire',time:'15:32',text:"one thing at a time, okay? u don't have to finish everything at the exact same second"},
+ {type:'me',time:'15:34',text:`i knowww, just trying to get it done`},
+ {type:'claire',time:'15:34',text:`i get ittt`},
+ {type:'claire',time:'15:35',text:"i'll stop distracting u now"},
+ {type:'claire',time:'15:35',text:`well. i'll TRY to stop distracting u 😭`},
+ {type:'photo-local',time:'16:02',path:'PAP.jpeg',alt:"Chris's photo",caption:'one last pap before i disappear to finish everything 😭',label:'04:02 PM · SENT A PHOTO'},
+ {type:'claire',time:'16:03',text:`oh, there u areee`},
+ {type:'claire',time:'16:03',text:`okay, go do your thing. good luck with the meeting prep ♡`},
+ {type:'jump',text:`08:17 PM · a little interruption`},
+ {type:'claire',time:'20:17',text:`heyyyy`,sender:'claire'},
+ {type:'claire',time:'20:18',text:`are u still busy?`},
+ {type:'claire',time:'20:18',text:`i was gonna tell u something earlier but then i fell asleep again 😭`},
+ {type:'me',time:'20:22',text:`still finishing a few things, sorryyy`},
+ {type:'claire',time:'20:23',text:"it's okayyy"},
+ {type:'claire',time:'20:23',text:`i just thought we'd talk for a little while tonight`},
+ {type:'me',time:'20:25',text:`we can, just give me a bit`},
+ {type:'claire',time:'20:25',text:"okeyyy. i'll be here"},
+ {type:'jump',text:`09:06 PM · finally, a little time to talk`},
+ {type:'claire',time:'21:06',text:`CHRISSS`,sender:'claire'},
+ {type:'me',time:'21:07',text:`IM HEREEE 😭`},
+ {type:'claire',time:'21:07',text:`finallyyy`},
+ {type:'claire',time:'21:08',text:`i was THIS close to having a conversation with my pillow`},
+ {type:'me',time:'21:08',text:`you could've just slept 😭`},
+ {type:'claire',time:'21:09',text:`i DID sleep. that's the problem. now i'm awake again`},
+ {type:'claire',time:'21:09',text:`my sleep schedule is just a suggestion at this point`},
+ {type:'me',time:'21:10',text:`same honestly 😭`},
+ {type:'claire',time:'21:10',text:`soooo how did everything go?`},
+ {type:'me',time:'21:11',text:`pretty tiring. still have things to finish, but the meeting prep is mostly done`},
+ {type:'claire',time:'21:11',text:`that's good at leasttt`},
+ {type:'claire',time:'21:12',text:`u had school, homework, and meeting stuff all in one day. no wonder you're tired`},
+ {type:'me',time:'21:13',text:`yeah, it was a lot`},
+ {type:'claire',time:'21:13',text:`i kinda missed talking to u today, not gonna lie`},
+ {type:'claire',time:'21:14',text:`and yes i know u were busy`},
+ {type:'claire',time:'21:14',text:"i'm allowed to complain a tiny bit though 😔"},
+ {type:'me',time:'21:15',text:`HAHAHA yes, you're allowed`},
+ {type:'claire',time:'21:15',text:`thank u for recognizing my constitutional right to be a little annoying`},
+ {type:'me',time:'21:16',text:`a LITTLE??`},
+ {type:'claire',time:'21:16',text:`don't push it, sir`},
+ {type:'jump',text:`09:24 PM · one more photo`},
+ {type:'claire',time:'21:24',text:`wait i'm sending u something`},
+ {type:'photo',time:'21:25',image:nightImg,alt:"Claire's late-night photo",caption:'there. now u can keep me company while i stay awake a little longer 😭',label:'09:25 PM · PAP #03'},
+ {type:'me',time:'21:26',text:`you sent that out of nowhere 😭`},
+ {type:'claire',time:'21:26',text:`i knowww`},
+ {type:'claire',time:'21:27',text:`i was going to send a normal message but this seemed more efficient`},
+ {type:'me',time:'21:27',text:`more efficient at what 😭`},
+ {type:'claire',time:'21:27',text:"at reminding u that i'm here, obviously"},
+ {type:'claire',time:'21:28',text:`also i was a little bored. don't expose me.`},
+ {type:'me',time:'21:28',text:`your secret is safe with me`},
+ {type:'claire',time:'21:29',text:`good. because i have a reputation to maintain`},
+ {type:'jump',text:`09:35 PM · the conversation goes everywhere`},
+ {type:'claire',time:'21:35',text:`what's one thing that made u laugh today?`},
+ {type:'me',time:'21:36',text:`probably you asking if fish have meetings 😭`},
+ {type:'claire',time:'21:36',text:`SEE??? i'm contributing to society`},
+ {type:'me',time:'21:37',text:`in the weirdest way possible`},
+ {type:'claire',time:'21:37',text:`everybody has a talent`},
+ {type:'claire',time:'21:37',text:`some people can sing`},
+ {type:'claire',time:'21:38',text:`some people can draw`},
+ {type:'claire',time:'21:38',text:`and i can make u question the entire aquatic workforce`},
+ {type:'me',time:'21:39',text:`i hate that this is true`},
+ {type:'claire',time:'21:39',text:`you're welcomeeeee`},
+ {type:'me',time:'21:43',text:`what about you? how was your day really?`},
+ {type:'claire',time:'21:43',text:`honestly? pretty tiring too`},
+ {type:'claire',time:'21:44',text:`i think the nap helped, but now i'm sleepy and not sleepy at the same time`},
+ {type:'me',time:'21:44',text:`that's the worst feeling ever`},
+ {type:'claire',time:'21:45',text:`righttt? like my body wants sleep but my brain wants to replay every random thought i've ever had`},
+ {type:'claire',time:'21:46',text:`anyway, i'm glad we're talking now`},
+ {type:'me',time:'21:47',text:`me too. sorry i was gone for so long`},
+ {type:'claire',time:'21:47',text:`it's okayyy, i know u had things to do`},
+ {type:'claire',time:'21:48',text:`i was just a tiny bit grumpy because i wanted to talk to u 😭`},
+ {type:'me',time:'21:48',text:`a tiny bit?`},
+ {type:'claire',time:'21:49',text:`do not question the official report`},
+ {type:'me',time:'21:49',text:`HAHAHAHA okayyy`},
+ {type:'claire',time:'21:50',text:`thank u for your cooperation`},
+ {type:'jump',text:`10:04 PM · slowing down`},
+ {type:'claire',time:'22:04',text:`are u still working on anything?`},
+ {type:'me',time:'22:05',text:`just a few things left, then i'm done`},
+ {type:'claire',time:'22:05',text:`okayyy, don't push yourself too hard`},
+ {type:'claire',time:'22:06',text:`we can keep talking while u finish, but i'll try not to distract u too much`},
+ {type:'me',time:'22:06',text:`you say that like you're actually going to behave 😭`},
+ {type:'claire',time:'22:07',text:`i said TRY. please respect the wording.`},
+ {type:'me',time:'22:07',text:`fair enough`},
+ {type:'claire',time:'22:08',text:`also, tomorrow i'm showing u the frog pajamas. this is a formal commitment.`},
+ {type:'me',time:'22:08',text:`i'll hold u to that`},
+ {type:'claire',time:'22:09',text:`good. now go finish ur things, chairman 😭`},
+ {type:'me',time:'22:09',text:`YOU'RE STILL CALLING ME THAT`},
+ {type:'claire',time:'22:10',text:`goodnight in advance, just in case i fall asleep mid-sentence again`},
+ {type:'claire',time:'22:10',text:`i hope tomorrow is a little easier on u, chris ♡`},
+ {type:'me',time:'22:11',text:`goodnight claireee, get some sleep too`},
+ {type:'claire',time:'22:11',text:`okeyyy. no more fish jokes tonight.`},
+ {type:'claire',time:'22:12',text:`...`},
+ {type:'claire',time:'22:12',text:`unless the fish have something important to announce`},
+ {type:'me',time:'22:12',text:`GOODNIGHT 😭`},
+ {type:'jump',text:`10:16 PM · one last thing`},
+ {type:'claire',time:'22:16',text:`waittt, before u disappear for real`,sender:'claire'},
+ {type:'me',time:'22:16',text:`what nowww 😭`},
+ {type:'claire',time:'22:17',text:`nothing dramatic, promise`},
+ {type:'claire',time:'22:17',text:"i just hope u know that u don't have to make every day productive for it to count as a good day"},
+ {type:'claire',time:'22:18',text:`some days are just school, unfinished homework, random fish questions, and trying not to fall asleep on your desk 😭`},
+ {type:'claire',time:'22:18',text:`and that's okay too. u still showed up and did what u could`},
+ {type:'me',time:'22:19',text:`that's actually kinda nice of u to say`},
+ {type:'claire',time:'22:19',text:`don't sound so surprised, chairman 😭 i have my thoughtful moments`},
+ {type:'me',time:'22:20',text:`there it is. i knew the chairman thing was coming back`},
+ {type:'claire',time:'22:20',text:`it's part of my brand now. can't change it.`},
+ {type:'claire',time:'22:21',text:`anyway, put your phone down when you're ready, drink a little water, and let your brain clock out for today`},
+ {type:'me',time:'22:21',text:`okayyy, you too. no more accidental naps at midnight`},
+ {type:'claire',time:'22:22',text:`can't make any promises about the naps, but i'll try 😭`},
+ {type:'claire',time:'22:22',text:`goodnight, chris. hope tomorrow gives u something small to smile about ♡`},
+ {type:'me',time:'22:23',text:`goodnight claireee. see u tomorrow ♡`},
+ {type:'jump',text:`11:30 PM · ONE LAST CONVERSATION`},
+ {type:'claire',time:'23:30',text:`CHRISSSS`,sender:'claire'},
+ {type:'me',time:'23:30',text:`WHY ARE YOU STILL AWAKE 😭`},
+ {type:'claire',time:'23:31',text:`EXCUSE ME?? why are YOU still awake 😭`},
+ {type:'me',time:'23:31',text:`i asked first`},
+ {type:'claire',time:'23:32',text:`i was thinking about something important`},
+ {type:'me',time:'23:32',text:`what is it`},
+ {type:'claire',time:'23:33',text:`if penguins have knees, why do they walk like they owe somebody money`},
+ {type:'me',time:'23:33',text:`I'M GOING TO BED.`},
+ {type:'claire',time:'23:34',text:`NOOO WAIT 😭 i have more questions`},
+ {type:'me',time:'23:34',text:`that's exactly why i'm leaving`},
+ {type:'claire',time:'23:35',text:`okay okay. serious question this time.`},
+ {type:'me',time:'23:35',text:`i'm listening...`},
+ {type:'claire',time:'23:36',text:`what would your perfect day look like? not a productive day. just a day you'd genuinely enjoy.`},
+ {type:'me',time:'23:38',text:`probably somewhere quiet. good weather, basketball, maybe the beach. and no deadlines for once.`},
+ {type:'claire',time:'23:38',text:`wait that actually sounds so nice`},
+ {type:'claire',time:'23:39',text:`blue sky, a little breeze, the sound of the water... and absolutely zero fish-related meetings.`},
+ {type:'me',time:'23:39',text:`you had to ruin the peaceful moment 😭`},
+ {type:'claire',time:'23:40',text:`i bring balance to the universe.`},
+ {type:'me',time:'23:40',text:`balance would be you being quiet for five minutes`},
+ {type:'claire',time:'23:41',text:`that's a very unreasonable request, chairman.`},
+ {type:'me',time:'23:41',text:`I KNEW IT.`},
+ {type:'jump',text:`11:48 PM · the random questions return`},
+ {type:'claire',time:'23:48',text:`okay but genuinely, do u ever feel like the day goes by too quickly?`},
+ {type:'me',time:'23:49',text:"yeah. sometimes i feel like i'm busy all day and still haven't done enough."},
+ {type:'claire',time:'23:50',text:`i get that. it's weird how a whole day can feel so full but somehow still feel unfinished.`},
+ {type:'claire',time:'23:50',text:`but hey, u don't have to turn every spare minute into something useful, okay?`},
+ {type:'me',time:'23:51',text:`i'm trying to learn that`},
+ {type:'claire',time:'23:52',text:`that's enough for tonight, then. u don't need to figure everything out before sleeping.`},
+ {type:'me',time:'23:52',text:`why are you suddenly wise at midnight`},
+ {type:'claire',time:'23:53',text:`my brain has two settings: absolute nonsense and one random sentence of wisdom 😭`},
+ {type:'me',time:'23:53',text:`at least one of them is useful`},
+ {type:'claire',time:'23:54',text:`i'm choosing to take that as a compliment.`},
+ {type:'jump',text:`12:06 AM · technically tomorrow`},
+ {type:'me',time:'00:06',text:`wait it's already past midnight??`},
+ {type:'claire',time:'00:06',text:`HAPPY TOMORROW 😭🎉`},
+ {type:'me',time:'00:07',text:`that is NOT how that works`},
+ {type:'claire',time:'00:07',text:`too late. i've celebrated. there's no going back.`},
+ {type:'me',time:'00:08',text:`what did you even do to celebrate`},
+ {type:'claire',time:'00:08',text:`i wiggled my toes under the blanket. huge event.`},
+ {type:'me',time:'00:09',text:`incredible. historic. somebody call the news.`},
+ {type:'claire',time:'00:09',text:`thank u, thank u. i'd like to thank my blanket and my questionable sleep schedule.`},
+ {type:'me',time:'00:10',text:`and the penguins who walk like debt collectors`},
+ {type:'claire',time:'00:10',text:`they deserve recognition too.`},
+ {type:'jump',text:`12:24 AM · getting a little sleepy`},
+ {type:'claire',time:'00:24',text:`okay i'm starting to get sleepy for real now`},
+ {type:'me',time:'00:24',text:`GOOD. please go to sleep 😭`},
+ {type:'claire',time:'00:25',text:`but i have one last question`},
+ {type:'me',time:'00:25',text:`of course you do`},
+ {type:'claire',time:'00:26',text:`if tomorrow-you could send tonight-you one message, what would it say?`},
+ {type:'me',time:'00:28',text:`probably "relax, you're doing okay. just take it one day at a time."`},
+ {type:'claire',time:'00:29',text:`then let's keep that message, okay? one day at a time. no need to solve the entire future tonight ♡`},
+ {type:'me',time:'00:30',text:`okay. one day at a time.`},
+ {type:'claire',time:'00:31',text:`good. now that's my final-final question.`},
+ {type:'me',time:'00:31',text:`you said that three questions ago 😭`},
+ {type:'claire',time:'00:32',text:`i know. i'm working on my credibility.`},
+ {type:'me',time:'00:33',text:`work on it tomorrow. sleep nowww.`},
+ {type:'claire',time:'00:34',text:`okayyy. put your phone down too, chairman. both of us need rest.`},
+ {type:'me',time:'00:35',text:`fineee 😭 goodnight, claire.`},
+ {type:'claire',time:'00:35',text:`goodnight, chris ♡ hope u wake up feeling a little lighter tomorrow.`},
+ {type:'me',time:'00:36',text:`see u tomorrowww ♡`},
+ {type:'end',text:`01:00 AM · GOODNIGHT ♡`}
+];
+
+const chatBody = document.getElementById('chat-body');
+function escapeHTML(value){return String(value).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function createMessage(item){
+  if(item.type==='day') return `<div class="day-label"><span>${escapeHTML(item.text)}</span></div>`;
+  if(item.type==='jump') return `<div class="time-jump"><span>${escapeHTML(item.text)}</span></div>`;
+  if(item.type==='end') return `<div class="day-label"><span>${escapeHTML(item.text)}</span></div><div class="end-note">close your eyes, unclench your shoulders, and let today be done. ♡</div>`;
+  const isMe=item.type==='me'||item.type==='photo-local'; const photo=item.type==='photo'||item.type==='photo-local';
+  const avatar=isMe?'':`<img class="mini-avatar" src="${claireImg}" alt="">`;
+  let content='';
+  if(photo){
+    let imageHTML;
+    if(item.type==='photo-local') imageHTML=`<img class="message-image" src="${escapeHTML(item.path)}" alt="${escapeHTML(item.alt)}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="local-fallback">Your photo goes here.<br>Check <strong>${escapeHTML(item.path)}</strong></div>`;
+    else imageHTML=`<img class="message-image" src="${item.image}" alt="${escapeHTML(item.alt)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="local-fallback">Photo unavailable right now ♡</div>`;
+    content=`<div class="sender">${isMe?'you':'claire'} · photo</div><div class="bubble">${imageHTML}<div class="image-caption"><strong>${escapeHTML(item.label)}</strong>${escapeHTML(item.caption)}</div></div>`;
+  }else content=`${item.sender?`<div class="sender">${escapeHTML(item.sender)}</div>`:''}<div class="bubble">${escapeHTML(item.text)}</div>`;
+  return `<div class="message ${isMe?'me':''} ${photo?'image':''}">${avatar}<div class="message-content">${content}<div class="timestamp">${escapeHTML(item.time)}</div></div></div>`;
+}
+chatBody.innerHTML=conversation.map(createMessage).join('');
+document.getElementById('message-count').textContent=`${conversation.filter(m=>['me','claire','photo','photo-local'].includes(m.type)).length} memories`;
+
+// Mood picker
+const moodButtons=[...document.querySelectorAll('.mood-button')];
+moodButtons.forEach(button=>button.addEventListener('click',()=>{moodButtons.forEach(b=>b.classList.remove('active'));button.classList.add('active');document.getElementById('mood-result').textContent=button.dataset.message;}));
+// Star collecting mini game
+let stars=0;const starLines=['One tiny star for making it through today.','Rare achievement unlocked: you took a tiny break.','A shiny reminder that rest is allowed, too.','Another star. No need to earn your right to rest.','The penguins have approved this very official star.'];
+document.getElementById('collect-star').addEventListener('click',()=>{stars++;document.getElementById('star-score').textContent=stars;document.getElementById('game-star').textContent=['✦','✧','★','✦','⋆'][stars%5];document.getElementById('game-message').textContent=starLines[(stars-1)%starLines.length];if(stars%5===0)showToast('five tiny stars! official certificate of surviving today ♡');});
+// Gentle notes
+const notes=[
+  '“You can have a long day and still deserve a quiet, gentle ending.”',
+  '“Not everything unfinished is a failure. Some things can wait until tomorrow.”',
+  '“A small, ordinary moment can still be worth remembering.”',
+  '“You are allowed to rest before you have everything figured out.”',
+  '“One day at a time is a real plan, not a small ambition.”',
+  '“Drink some water, relax your shoulders, and stop being mean to yourself.”',
+  '“Even the moon gets to show up in phases. You can, too.”',
+  '“You do not have to turn every spare minute into something useful.”'
+];let lastNote=-1;
+document.getElementById('new-note').addEventListener('click',()=>{let index=Math.floor(Math.random()*notes.length);if(notes.length>1&&index===lastNote)index=(index+1)%notes.length;lastNote=index;document.getElementById('random-note').textContent=notes[index];showToast('a tiny note, just for this moment ♡');});
+// Checklist progress
+const checks=[...document.querySelectorAll('#check-list input')];function updateProgress(){let done=checks.filter(c=>c.checked).length;document.getElementById('progress-fill').style.width=`${done/checks.length*100}%`;document.getElementById('progress-text').textContent=done===checks.length?'all four checked · now go enjoy your evening ♡':`${done} of ${checks.length} checked · it's okay to start small`;}checks.forEach(c=>c.addEventListener('change',updateProgress));
+// Pause/resume equalizer decoration only; no music is played.
+let paused=false;document.getElementById('music-toggle').addEventListener('click',()=>{paused=!paused;document.getElementById('equalizer').classList.toggle('paused',paused);document.getElementById('music-toggle-label').textContent=paused?'play the little animation':'pause the little animation';showToast(paused?'animation paused; enjoy the quiet':'little animation resumed ♫');});
+let toastTimer;function showToast(message){const toast=document.getElementById('toast');toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200);}
+document.getElementById('top-button').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

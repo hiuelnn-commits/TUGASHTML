@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories Album</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff8fa 0%, #ff758f 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .album-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .album-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background-color: #ff4d6d;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .album-card h1 {
+            color: #333333;
+            font-size: 24px;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        .subtitle {
+            color: #ff4d6d;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background-color: #f0f0f0;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-badge {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        /* Wadah tombol */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Style kedua tombol */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+            max-width: 260px;
+            background-color: #ff4d6d;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e93659;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(255, 77, 109, 0.25);
+        }
+
+        /* Tombol My Music */
+        .btn-music {
+            background: linear-gradient(135deg, #ff758f, #c56cf0);
+        }
+
+        .btn-music:hover {
+            background: linear-gradient(135deg, #f65d7d, #a94bd6);
+        }
+
+        @media (max-width: 380px) {
+            .album-card {
+                padding: 25px 15px;
+            }
+
+            .photo-grid {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="album-card">
+
+        <h1>Memories Album</h1>
+        <div class="subtitle">Koleksi Foto & Momen Clarice</div>
+
+        <div class="photo-grid">
+
+            <div class="photo-item">
+                <img
+                    src="https://i.pinimg.com/736x/66/8d/ae/668dae22b3a14681b79075f623ec3ce1.jpg"
+                    alt="Foto Clarice"
+                    loading="lazy">
+                <div class="photo-badge">✨ Clarice</div>
+            </div>
+
+            <div class="photo-item">
+                <img
+                    src="https://i.pinimg.com/1200x/a6/7f/8c/a67f8c720fe234d1853d61b147619d51.jpg"
+                    alt="Taken by Chris"
+                    loading="lazy">
+                <div class="photo-badge">📸 Taken by Chris</div>
+            </div>
+
+            <div class="photo-item">
+                <img
+                    src="https://i.pinimg.com/736x/f3/d4/bd/f3d4bd38e033d6fd143338b1476d80e2.jpg"
+                    alt="Pose Marah"
+                    loading="lazy">
+                <div class="photo-badge">💝 Pose Marah</div>
+            </div>
+
+            <div class="photo-item">
+                <img
+                    src="https://i.pinimg.com/736x/cf/67/d9/cf67d99059f909a27d9a00b75036d440.jpg"
+                    alt="Foto Keempat"
+                    loading="lazy">
+                <div class="photo-badge">✨ Sick</div>
+            </div>
+
+        </div>
+
+        <!-- Tombol navigasi -->
+        <div class="button-group">
+
+            <a href="SATUREAL.html" class="btn">
+                ↩️ Kembali ke Halaman Utama
+            </a>
+
+            <a href="EMPATREAL.html" class="btn btn-music">
+                🎵 My Music →
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09121f">
+<title>A Message for You — Claire ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+:root {
+  --night: #09121f;
+  --navy: #14243a;
+  --paper: #eee5d6;
+  --ink: #26374a;
+  --muted: #bdc9d8;
+  --moon: #f3e5c6;
+  --line: rgba(226,233,245,.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #f3eee7;
+  background: var(--night);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+button, a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: #b3c4d9;
+  color: #0b1524;
+}
+
+/* =================================
+   NIGHT OCEAN BACKGROUND
+================================= */
+
+.ocean {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 82% 36%,
+      rgba(172,143,115,.15), transparent 24%),
+    radial-gradient(ellipse at 15% 12%,
+      rgba(65,94,125,.24), transparent 35%),
+    linear-gradient(180deg,
+      #111827 0%,
+      #17263a 32%,
+      #152c42 52%,
+      #071321 100%);
+}
+
+.ocean::before {
+  content: "";
+  position: absolute;
+  top: 37%;
+  left: -20%;
+  width: 140%;
+  height: 38%;
+  opacity: .6;
+  background: repeating-linear-gradient(
+    177deg,
+    transparent 0 13px,
+    rgba(190,204,216,.08) 14px,
+    transparent 16px 26px
+  );
+  transform: rotate(-2deg);
+  animation: sea 12s ease-in-out infinite alternate;
+}
+
+.ocean::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  right: -8%;
+  width: 36%;
+  height: 42%;
+  background: radial-gradient(
+    ellipse,
+    rgba(238,205,155,.17),
+    rgba(191,176,155,.06) 30%,
+    transparent 70%
+  );
+  filter: blur(14px);
+}
+
+@keyframes sea {
+  from { transform: translateX(-2%) rotate(-2deg); }
+  to { transform: translateX(2%) rotate(-1deg); }
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  color: rgba(245,237,219,.8);
+  font-size: var(--size, 5px);
+  animation: twinkle var(--duration, 4s)
+    ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; }
+  to { opacity: .95; }
+}
+
+.moon {
+  position: absolute;
+  top: 14%;
+  right: 13%;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: var(--moon);
+  box-shadow:
+    0 0 20px rgba(243,229,198,.2),
+    0 0 75px rgba(243,229,198,.13);
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -9px;
+  left: 16px;
+  border-radius: 50%;
+  background: #131e30;
+}
+
+/* =================================
+   DECORATIVE NAVIGATION
+================================= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 12px 5%;
+  background: rgba(8,16,29,.76);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(223,230,239,.14);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  flex-shrink: 0;
+  text-decoration: none;
+  font-family: 'Caveat', cursive;
+  font-size: 34px;
+  color: #f0e5d5;
+  transition: .3s;
+}
+
+.logo:hover {
+  color: #d7c2a5;
+  text-shadow: 0 0 20px rgba(215,194,165,.35);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 11px 16px;
+  border-radius: 30px;
+  color: #b9c6d6;
+  font-size: 12px;
+  letter-spacing: .25px;
+  border: 1px solid transparent;
+  transition:
+    color .3s,
+    background .3s,
+    border-color .3s,
+    transform .3s,
+    box-shadow .3s;
+}
+
+.nav-link .nav-icon {
+  font-size: 14px;
+  transition: transform .3s;
+}
+
+.nav-link:hover {
+  color: #fff4e4;
+  background: rgba(211,220,233,.08);
+  border-color: rgba(220,229,240,.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 24px rgba(0,0,0,.15);
+}
+
+.nav-link:hover .nav-icon {
+  transform: rotate(-12deg) scale(1.12);
+}
+
+.nav-link.active {
+  color: #f4e9d8;
+  background: linear-gradient(
+    135deg,
+    rgba(183,199,217,.15),
+    rgba(115,140,167,.09)
+  );
+  border-color: rgba(206,218,233,.35);
+  box-shadow:
+    inset 0 0 15px rgba(210,222,237,.035),
+    0 0 20px rgba(124,155,187,.06);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 35%;
+  width: 30%;
+  height: 1px;
+  background: #d8c6a8;
+  box-shadow: 0 0 9px #d8c6a8;
+}
+
+.nav-note {
+  color: #aebbc9;
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  text-align: right;
+  transform: rotate(-3deg);
+  flex-shrink: 0;
+}
+
+/* =================================
+   PAGE CONTENT
+================================= */
+
+main {
+  width: min(1100px, 100%);
+  margin: auto;
+  padding: 0 24px 45px;
+}
+
+.intro {
+  text-align: center;
+  padding: 72px 0 42px;
+  animation: rise .9s ease both;
+}
+
+.eyebrow {
+  color: #c4b49e;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 10px;
+}
+
+.intro h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px,6vw,62px);
+  font-weight: 400;
+  font-style: italic;
+  margin: 17px 0 12px;
+  letter-spacing: -1.5px;
+}
+
+.intro h1 span {
+  color: #d9bda7;
+}
+
+.intro p {
+  color: #bdc9d8;
+  line-height: 1.9;
+  font-size: 13px;
+}
+
+.tiny-star {
+  color: #d8c6a8;
+  font-size: 19px;
+  margin: 12px 0;
+}
+
+/* =================================
+   FOUR PHOTO CARDS
+================================= */
+
+.memories {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 26px;
+}
+
+.memory {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr .86fr;
+  align-items: center;
+  gap: 17px;
+  padding: 13px;
+  color: var(--ink);
+  background: rgba(232,226,214,.96);
+  border: 1px solid rgba(255,255,255,.5);
+  box-shadow: 0 12px 35px rgba(0,0,0,.2);
+  animation: rise .8s ease both;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.memory:nth-child(2) { animation-delay: .1s; }
+.memory:nth-child(3) { animation-delay: .2s; }
+.memory:nth-child(4) { animation-delay: .3s; }
+
+.memory:hover {
+  transform: translateY(-5px) rotate(-.3deg);
+  box-shadow: 0 18px 38px rgba(0,0,0,.3);
+}
+
+.photo {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  background: #26384b;
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(.77) contrast(.96);
+  transition: transform .5s;
+}
+
+.memory:hover .photo img {
+  transform: scale(1.04);
+}
+
+.photo::after {
+  content: "♡";
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  color: white;
+  font-size: 23px;
+  text-shadow: 0 1px 8px #000;
+}
+
+.tape {
+  position: absolute;
+  z-index: 2;
+  top: -2px;
+  right: 23%;
+  width: 53px;
+  height: 15px;
+  background: rgba(151,174,192,.65);
+  transform: rotate(12deg);
+}
+
+.note {
+  padding: 8px 4px;
+}
+
+.number {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: #7b8b9c;
+  font-size: 18px;
+}
+
+.note h2 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(23px,2.5vw,31px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 12px 0;
+}
+
+.note p {
+  color: #66778a;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.doodle {
+  color: #72859a;
+  font-size: 21px;
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* =================================
+   SECRET LETTER INTRO
+================================= */
+
+.secret {
+  margin-top: 44px;
+  padding: clamp(23px,5vw,48px);
+  border: 1px solid rgba(229,225,216,.2);
+  background:
+    linear-gradient(135deg,
+      rgba(211,204,191,.11),
+      rgba(100,123,147,.08)),
+    rgba(7,15,27,.6);
+  box-shadow: 0 20px 60px rgba(0,0,0,.13);
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 35px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.envelope-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 185px;
+  position: relative;
+}
+
+.envelope {
+  width: 175px;
+  height: 125px;
+  position: relative;
+  background: #d9cbb5;
+  transform: rotate(-7deg);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transition: transform .4s;
+}
+
+.envelope:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #e9deca;
+  clip-path: polygon(0 0,100% 0,50% 56%);
+  z-index: 2;
+}
+
+.envelope::after {
+  content: "♡";
+  position: absolute;
+  z-index: 3;
+  top: 43px;
+  left: 70px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #f0e8d9;
+  background: #52677d;
+  font-size: 20px;
+}
+
+.envelope-caption {
+  position: absolute;
+  bottom: 3px;
+  left: 4%;
+  color: #c3b7a5;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  transform: rotate(-7deg);
+}
+
+.secret-copy .eyebrow {
+  color: #b8c5d5;
+}
+
+.secret h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(25px,3.6vw,36px);
+  line-height: 1.3;
+  margin: 13px 0;
+}
+
+.secret-copy > p {
+  color: #aebdce;
+  line-height: 1.9;
+  font-size: 13px;
+  max-width: 410px;
+}
+
+.open-btn {
+  margin-top: 13px;
+  border: 1px solid rgba(228,231,236,.65);
+  border-radius: 40px;
+  padding: 13px 20px;
+  color: #f2eee8;
+  background: rgba(180,194,211,.1);
+  cursor: pointer;
+  transition: .25s;
+}
+
+.open-btn:hover {
+  color: #172337;
+  background: #e8e1d6;
+  transform: translateY(-2px);
+}
+
+.open-btn span {
+  margin-left: 10px;
+}
+
+/* =================================
+   SECRET LETTER
+================================= */
+
+.letter {
+  display: none;
+  margin-top: 25px;
+  padding: 30px clamp(20px,5vw,48px);
+  color: #33445a;
+  background:
+    radial-gradient(ellipse at top right,
+      rgba(183,196,208,.22),transparent 50%),
+    #e9e1d3;
+  box-shadow: 0 15px 50px rgba(0,0,0,.2);
+}
+
+.letter.show {
+  display: block;
+  animation: rise .6s ease both;
+}
+
+.letter-label {
+  color: #74869a;
+  letter-spacing: 2px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.letter h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 400;
+  margin: 15px 0 25px;
+}
+
+.letter p {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  line-height: 2;
+  margin: 0 0 17px;
+}
+
+.signature {
+  font-family: 'Caveat', cursive;
+  font-size: 29px;
+  text-align: right;
+  margin-top: 28px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #52677d;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+  text-align: center;
+  padding: 40px 10px 20px;
+  color: #8595a8;
+  font-size: 11px;
+}
+
+.footer-heart {
+  color: #d8c0a9;
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+footer p {
+  line-height: 1.9;
+}
+
+.music-note {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: #b7c4d3;
+  margin-top: 20px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(17px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   RESPONSIVE MOBILE
+================================= */
+
+@media (max-width: 900px) {
+  .nav-note {
+    display: none;
+  }
+
+  .nav-inner {
+    gap: 12px;
+  }
+
+  .nav-link {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 650px) {
+  .topbar {
+    padding: 12px 14px;
+  }
+
+  .nav-inner {
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .logo {
+    font-size: 30px;
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: 5px;
+  }
+
+  .nav-link {
+    padding: 9px 10px;
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  main {
+    padding: 0 14px 30px;
+  }
+
+  .intro {
+    padding: 55px 0 32px;
+  }
+
+  .moon {
+    width: 42px;
+    height: 42px;
+    top: 12%;
+    right: 9%;
+  }
+
+  .moon::after {
+    width: 40px;
+    height: 40px;
+    left: 12px;
+    top: -6px;
+  }
+
+  .memories {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .memory {
+    grid-template-columns: 1fr .9fr;
+    gap: 16px;
+    padding: 11px;
+  }
+
+  .photo {
+    aspect-ratio: 4 / 4.5;
+  }
+
+  .note h2 {
+    font-size: 28px;
+  }
+
+  .secret {
+    margin-top: 30px;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 25px 21px;
+  }
+
+  .envelope-wrap {
+    min-height: 155px;
+  }
+
+  .envelope {
+    width: 155px;
+    height: 110px;
+  }
+
+  .envelope::after {
+    left: 61px;
+    top: 38px;
+  }
+
+  .envelope-caption {
+    bottom: 0;
+    left: 10%;
+  }
+
+  .secret-copy {
+    text-align: center;
+  }
+
+  .secret-copy > p {
+    margin: 0 auto;
+  }
+
+  .letter {
+    padding: 26px 21px;
+  }
+
+  .letter h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-link {
+    padding: 8px 7px;
+    font-size: 9px;
+  }
+
+  .memory {
+    gap: 10px;
+  }
+
+  .note h2 {
+    font-size: 24px;
+  }
+
+  .note p {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ocean" aria-hidden="true">
+  <div class="sky" id="stars"></div>
+  <div class="moon"></div>
+</div>
+
+<!-- DECORATIVE NAVBAR -->
+<header class="topbar">
+  <nav class="nav-inner" aria-label="Main navigation">
+
+    <a class="logo" href="SATUREAL.html" aria-label="Claire main profile">
+      Claire ♡
+    </a>
+
+    <div class="nav-links">
+
+      <a class="nav-link" href="SATUREAL.html">
+        <span class="nav-icon">⌂</span>
+        <span>Profile</span>
+      </a>
+
+      <a class="nav-link" href="EMPATREAL.html">
+        <span class="nav-icon">♫</span>
+        <span>My Music</span>
+      </a>
+
+      <a class="nav-link" href="LIMAREAL.html">
+        <span class="nav-icon">↶</span>
+        <span>Previous</span>
+      </a>
+
+      <a class="nav-link active"
+         href="message.html"
+         aria-current="page">
+        <span class="nav-icon">✧</span>
+        <span>A Message for You</span>
+      </a>
+      
+      <a class="nav-link" href="TUJUHREAL.html">
+  <span class="nav-icon">☾</span>
+  <span>Sleep Call</span>
+</a>
+
+    </div>
+
+    <div class="nav-note">
+      you're doing<br>better than you think ♡
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <header class="intro">
+    <div class="eyebrow">a little corner of your world</div>
+    <div class="tiny-star">— ✧ —</div>
+
+    <h1>A Message for You <span>♡</span></h1>
+
+    <p>
+      Different moments, same you.<br>
+      Four little reminders, just for you.
+    </p>
+  </header>
+
+  <!-- FOUR PHOTO MESSAGES -->
+
+  <section class="memories" aria-label="Four little reminders">
+
+    <article class="memory">
+      <span class="tape"></span>
+
+      <div class="photo">
+        <img src="https://i.pinimg.com/736x/9b/33/37/9b333798c699c16f74bb1b0e9eb7ab1a.jpg" alt="Claire in a quiet moment">
+      </div>
+
+      <div class="note">
+        <span class="number">01.</span>
+        <h2>Take your time.</h2>
+        <p>You don't have to figure it all out today.</p>
+        <span class="doodle">♡</span>
+      </div>
+    </article>
+
+    <article class="memory">
+      <span class="tape"></span>
+
+      <div class="photo">
+        <img src="https://i.pinimg.com/1200x/06/61/aa/0661aa0248d0cf371668f82828f50ac9.jpg" alt="Claire looking out at the sea">
+      </div>
+
+      <div class="note">
+        <span class="number">02.</span>
+        <h2>Breathe a little.</h2>
+        <p>You've been carrying a lot lately.</p>
+        <span class="doodle">☾</span>
+      </div>
+    </article>
+
+    <article class="memory">
+      <span class="tape"></span>
+
+      <div class="photo">
+        <img src="https://i.pinimg.com/736x/64/52/5c/64525c9498895b83e28953d169c0d217.jpg" alt="Claire with a gentle smile">
+      </div>
+
+      <div class="note">
+        <span class="number">03.</span>
+        <h2>Don't lose hope.</h2>
+        <p>Your story still has so much left to tell.</p>
+        <span class="doodle">✳</span>
+      </div>
+    </article>
+
+    <article class="memory">
+      <span class="tape"></span>
+
+      <div class="photo">
+        <img src="https://i.pinimg.com/736x/bb/30/ae/bb30ae4772be1d3058830ed494f5574f.jpg" alt="Claire resting by a window">
+      </div>
+
+      <div class="note">
+        <span class="number">04.</span>
+        <h2>One day at a time.</h2>
+        <p>You are allowed to rest, too.</p>
+        <span class="doodle">♡</span>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- SECRET LETTER CARD -->
+
+  <section class="secret">
+
+    <div class="envelope-wrap">
+      <div class="envelope"></div>
+      <div class="envelope-caption">for you, always ♡</div>
+    </div>
+
+    <div class="secret-copy">
+      <div class="eyebrow">there's something else...</div>
+
+      <h2>A secret letter, just for you.</h2>
+
+      <p>
+        Some thoughts are better written than said.
+        When you're ready, you can open it.
+        It's filled with words for the days when
+        everything feels a little too much.
+      </p>
+
+      <button
+        class="open-btn"
+        id="openLetter"
+        aria-expanded="false"
+        aria-controls="secretLetter"
+      >
+        ♡ Open when you're ready <span>→</span>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- HIDDEN LETTER -->
+
+  <article
+    class="letter"
+    id="secretLetter"
+    aria-hidden="true"
+    inert
+  >
+    <div class="letter-label">a letter you weren't expecting ♡</div>
+
+    <h2>Hey, you. There's something I want you to know.</h2>
+
+    <p>
+      I know there might be a lot going on in your mind right now.
+      Things you haven't told anyone, questions you don't have
+      answers to, and worries that seem to follow you even when
+      everything around you gets quiet.
+    </p>
+
+    <p>
+      Maybe sometimes it's easier to say you're okay than to
+      explain what's really happening. Maybe you don't even know
+      where to begin, because there's just so much to say.
+    </p>
+
+    <p>
+      But you don't have to find all the words tonight.
+      You don't have to turn every feeling into an explanation,
+      and you don't have to solve every problem before allowing
+      yourself to rest.
+    </p>
+
+    <p>
+      I hope you stop being so hard on yourself for not having
+      everything figured out. You're still learning, still growing,
+      and still finding your way through a world that can feel
+      overwhelming sometimes.
+    </p>
+
+    <p>
+      Your future matters, yes. Your dreams matter, too.
+      But so does the person you are while you're trying to reach
+      them. You deserve kindness even on the days when you feel
+      unproductive, uncertain, or far behind where you hoped to be.
+    </p>
+
+    <p>
+      And if the things you're carrying ever become too difficult
+      to manage alone, please remember that you deserve support.
+      You don't need a perfect explanation to tell someone you trust
+      that you've been having a hard time.
+    </p>
+
+    <p>
+      For now, imagine sitting by the sea at night.
+      The air is cool, the waves keep moving, and for a little while,
+      nothing is asking you to have all the answers.
+    </p>
+
+    <p>
+      Let tomorrow wait a little.
+      You can come back to your worries when you've had some rest.
+      One step is still a step, even when it's a small one.
+    </p>
+
+    <p>
+      I hope that one day, when you look back at this chapter of
+      your life, you realize that you made it through things you
+      once didn't know how to put into words.
+    </p>
+
+    <p>
+      Until then, please remember to leave a little kindness
+      for yourself, too.
+    </p>
+
+    <div class="signature">Take care, okay? — Claire ♡</div>
+
+    <button class="close-btn" id="closeLetter">
+      fold this letter away
+    </button>
+  </article>
+
+  <footer>
+    <div class="footer-heart">✧ ♡ ✧</div>
+
+    <p>
+      The sea never asks the waves to hurry.<br>
+      Maybe you don't have to hurry, either.
+    </p>
+
+    <div class="music-note">
+      a little reminder, for another day.
+    </div>
+  </footer>
+
+</main>
+
+<script>
+/* STAR PARTICLES */
+
+const sky = document.getElementById("stars");
+
+for (let i = 0; i < 95; i++) {
+  const star = document.createElement("span");
+
+  star.className = "star";
+  star.textContent = Math.random() > 0.8 ? "✧" : "·";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 58 + "%";
+  star.style.setProperty(
+    "--size",
+    (Math.random() * 8 + 3) + "px"
+  );
+  star.style.setProperty(
+    "--duration",
+    (Math.random() * 4 + 2) + "s"
+  );
+  star.style.animationDelay =
+    (Math.random() * 4) + "s";
+
+  sky.appendChild(star);
+}
+
+/* SECRET LETTER */
+
+const openButton = document.getElementById("openLetter");
+const closeButton = document.getElementById("closeLetter");
+const letter = document.getElementById("secretLetter");
+
+openButton.addEventListener("click", () => {
+  letter.classList.add("show");
+  letter.removeAttribute("inert");
+  letter.setAttribute("aria-hidden", "false");
+
+  openButton.setAttribute("aria-expanded", "true");
+  openButton.innerHTML =
+    "♡ Your letter is open <span>↓</span>";
+
+  setTimeout(() => {
+    letter.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 100);
+});
+
+closeButton.addEventListener("click", () => {
+  letter.classList.remove("show");
+  letter.setAttribute("aria-hidden", "true");
+  letter.setAttribute("inert", "");
+
+  openButton.setAttribute("aria-expanded", "false");
+  openButton.innerHTML =
+    "♡ Open when you're ready <span>→</span>";
+
+  openButton.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  openButton.focus({ preventScroll: true });
+});
+</script>
+
+</body>
+</html>
